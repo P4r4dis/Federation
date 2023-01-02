@@ -1,0 +1,12 @@
+#include "../includes/WarpSystem.hpp"
+
+WarpSystem::QuantumReactor::QuantumReactor() : _stability(true)
+{}
+
+WarpSystem::QuantumReactor::~QuantumReactor()
+{}
+
+bool WarpSystem::QuantumReactor::getStability()
+{
+    return _stability;
+}

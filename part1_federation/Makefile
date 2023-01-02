@@ -16,6 +16,7 @@ CPPFLAGS	+= -Wall -Wextra -Werror $(INCFLAGS)#-W -std=c++1z
 
 
 SRCS		=	$(SRC_PATH)/my_federation.cpp \
+				$(SRC_PATH)/WarpSystem.cpp \
 				$(CORE_PATH)/main_federation.cpp
 
 SRC_TEST	=	$(TST_PATH)/$(NAME)_test.cpp
