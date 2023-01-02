@@ -8,9 +8,10 @@ int     main(void)
     // Federation::Ship Independent(150, 230, "Greok");
     WarpSystem::QuantumReactor QR;
     if (QR.getStability() == true)
-    {
-        std::cout << "_stability == true" << std::endl;
-    }
+        std::cout << "getStability == true" << std::endl;
+    if (QR.isStable() == true)
+        std::cout << "isStable == true" << std::endl;
+
     // WarpSystem::QuantumReactor QR2;
     // WarpSystem::Core core(&QR);
     // WarpSystem::Core core2(&QR2);

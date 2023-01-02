@@ -13,6 +13,7 @@ namespace WarpSystem
             ~QuantumReactor();
 
             bool    getStability(void);
+            bool    isStable(void);
     };
 }
 

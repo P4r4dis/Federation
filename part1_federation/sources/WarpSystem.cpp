@@ -10,3 +10,8 @@ bool WarpSystem::QuantumReactor::getStability()
 {
     return _stability;
 }
+
+bool WarpSystem::QuantumReactor::isStable()
+{
+    return getStability();
+}
