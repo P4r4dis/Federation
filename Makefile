@@ -5,7 +5,7 @@ PART1_PATH 				= 	./part1_federation
 PART1_SRC_PATH			=	./part1_federation/sources
 PART1_TST_PATH			=	./part1_federation/tests
 PART1_INC_PATH			=	./part1_federation/includes
-NAME_FEDERATION			=	a.out
+NAME_FEDERATION			=	my_federation
 
 PART1_SRC				=	$(PART1_SRC_PATH)/my_federation.cpp
 PART1_SRC_TEST			=	$(PART1_TST_PATH)/$(NAME_FEDERATION)_test.cpp
@@ -70,7 +70,7 @@ TST_PATH			=	$(PART1_TST_PATH)
 # $(PART4_TST_PATH)
 # $(PART5_SRC_PATH)
 
-NAME				=	a.out
+NAME				=	my_federation
 TEST_NAME 			= 	test_$(NAME)
 
 #INC_PATH 			= 	$(PART1_INC_PATH)
@@ -103,7 +103,7 @@ FCLEAN				=	fclean
 all					:	$(NAME)
 
 $(NAME)				:	$(OBJS)
-						$(G++) $(OBJS) $(CPPFLAGS)
+						$(G++) $(OBJS) -o $(NAME) $(CPPFLAGS)
 #$(G++) $(OBJS) -o $(NAME) $(CPPFLAGS)
 
 RM					=	rm -rf

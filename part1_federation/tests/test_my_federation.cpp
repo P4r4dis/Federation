@@ -1,6 +1,16 @@
 #include "../includes/my_federation.hpp"
 #include "./tests_includes/test_my_federation.hpp"
 
+Test(Federation_Starfleet_Ship, test_constructor, .init=redirect_all_stdout)
+{
+    Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6);
+    
+    cr_assert_stdout_eq_str("The ship USS Kreog has been finished.\n\
+It is 289 m in length and 132 m in width.\n\
+It can go to Warp 6!\n");
+}
+
+
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;
