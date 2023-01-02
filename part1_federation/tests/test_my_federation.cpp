@@ -17,6 +17,14 @@ Test(WarpSystem_QuantumReactor, test_constructor)
     cr_assert(QR.getStability() == true);
 }
 
+Test(WarpSystem_QuantumReactor, test_isStable)
+{
+    WarpSystem::QuantumReactor QR;
+
+    cr_assert(QR.getStability() == true);
+    cr_assert(QR.isStable() == true);
+}
+
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;
