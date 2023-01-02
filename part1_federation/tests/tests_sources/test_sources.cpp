@@ -36,3 +36,8 @@ bool WarpSystem::QuantumReactor::isStable()
 {
     return getStability();
 }
+
+void WarpSystem::QuantumReactor::setStability(bool stability)
+{
+    _stability = stability;
+}

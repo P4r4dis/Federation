@@ -45,6 +45,8 @@ namespace WarpSystem
 
             bool    getStability(void);
             bool    isStable(void);
+
+            void    setStability(bool stability);
     };
 }
 
