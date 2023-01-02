@@ -21,7 +21,11 @@ int     main(void)
     // Independent.setupCore(&core2);
     // Independent.checkCore();
     
-    // QR.setStability(false);
+    QR.setStability(false);
+    if (QR.getStability() == false)
+        std::cout << "getStability == false" << std::endl;
+    if (QR.isStable() == false)
+        std::cout << "isStable == false" << std::endl;
     // QR2.setStability(false);
     // UssKreog.checkCore();
     // Independent.checkCore();
