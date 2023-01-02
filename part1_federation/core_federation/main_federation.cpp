@@ -12,9 +12,13 @@ int     main(void)
     if (QR.isStable() == true)
         std::cout << "isStable == true" << std::endl;
 
-    // WarpSystem::QuantumReactor QR2;
-    // WarpSystem::Core core(&QR);
-    // WarpSystem::Core core2(&QR2);
+    WarpSystem::QuantumReactor QR2;
+    WarpSystem::Core core(&QR);
+    if(core.checkReactor() == &QR)
+        std::cout << "core.checkReactor is OK" << std::endl;
+    WarpSystem::Core core2(&QR2);
+    if(core2.checkReactor() == &QR2)
+        std::cout << "core2.checkReactor is OK" << std::endl;
 
     // UssKreog.setupCore(&core);
     // UssKreog.checkCore();
