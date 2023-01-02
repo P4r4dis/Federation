@@ -48,6 +48,18 @@ namespace WarpSystem
 
             void    setStability(bool stability);
     };
+
+    class Core
+    {
+        private:
+            QuantumReactor *_coreReactor;
+        public:
+            Core(QuantumReactor *coreReactor);
+            ~Core();
+
+            QuantumReactor *checkReactor(void);
+
+    };
 }
 
 #endif  // !__TEST_MY_FEDERATION__
