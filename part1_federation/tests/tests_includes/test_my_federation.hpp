@@ -33,4 +33,18 @@ namespace Federation
     }
 }
 
+namespace WarpSystem
+{
+    class QuantumReactor
+    {
+        private:
+            bool    _stability;
+        public:
+            QuantumReactor();
+            ~QuantumReactor();
+
+            bool    getStability(void);
+    };
+}
+
 #endif  // !__TEST_MY_FEDERATION__

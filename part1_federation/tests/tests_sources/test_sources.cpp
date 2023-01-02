@@ -21,3 +21,13 @@ Federation::Starfleet::Ship::Ship(int length, int width, std::string name,
 Federation::Starfleet::Ship::~Ship()
 {}
 
+WarpSystem::QuantumReactor::QuantumReactor() : _stability(true)
+{}
+
+WarpSystem::QuantumReactor::~QuantumReactor()
+{}
+
+bool WarpSystem::QuantumReactor::getStability()
+{
+    return _stability;
+}

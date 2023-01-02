@@ -1,4 +1,4 @@
-#include "../includes/my_federation.hpp"
+// #include "../includes/my_federation.hpp"
 #include "./tests_includes/test_my_federation.hpp"
 
 Test(Federation_Starfleet_Ship, test_constructor, .init=redirect_all_stdout)
@@ -10,6 +10,12 @@ It is 289 m in length and 132 m in width.\n\
 It can go to Warp 6!\n");
 }
 
+Test(WarpSystem_QuantumReactor, test_constructor)
+{
+    WarpSystem::QuantumReactor QR;
+
+    cr_assert(QR.getStability() == true);
+}
 
 // Test(SickKoala, ctorDefault) {
 

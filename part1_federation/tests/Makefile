@@ -1,6 +1,6 @@
 G++				=	g++
 
-SRC_PATH		=	../sources/
+SRC_PATH		=	../sources
 INC_PATH		=	../includes/
 
 TESTS_SRC_PATH	=	./tests_sources/
@@ -14,7 +14,6 @@ CPPFLAGS		+=	-Wall -Wextra -Werror $(INCFLAGS) $(CRITFLAGS)
 
 
 SRCS			=	test_my_federation.cpp \
-					$(SRC_PATH)/my_federation.cpp \
 					$(TESTS_SRC_PATH)/test_sources.cpp
 
 
