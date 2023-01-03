@@ -77,6 +77,41 @@ USS Kreog: The core is set.\n\
 USS Kreog: The core is stable at the time.\n");
 }
 
+
+Test(Federation_Ship, test_constructor, .init=redirect_all_stdout)
+{
+    Federation::Ship Independent(150, 230, "Greok");
+    
+    cr_assert_stdout_eq_str("The independent ship Greok just finished its construction.\n\
+It is 150 m in length and 230 m in width.\n");
+}
+
+Test(Federation_Ship, test_setupCore, .init=redirect_all_stdout)
+{
+    Federation::Ship Independent(150, 230, "Greok");
+    WarpSystem::QuantumReactor  QR2;
+    WarpSystem::Core            core2(&QR2);
+
+    Independent.setupCore(&core2);
+    cr_assert_stdout_eq_str("The independent ship Greok just finished its construction.\n\
+It is 150 m in length and 230 m in width.\n\
+Greok: The core is set.\n");
+}
+
+Test(Federation_Ship, test_checkCore, .init=redirect_all_stdout)
+{
+    Federation::Ship Independent(150, 230, "Greok");
+    WarpSystem::QuantumReactor  QR2;
+    WarpSystem::Core            core2(&QR2);
+
+    Independent.setupCore(&core2);
+    Independent.checkCore();
+    cr_assert_stdout_eq_str("The independent ship Greok just finished its construction.\n\
+It is 150 m in length and 230 m in width.\n\
+Greok: The core is set.\n\
+Greok: The core is stable at the time.\n");
+}
+
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;

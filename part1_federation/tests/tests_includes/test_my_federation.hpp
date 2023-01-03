@@ -40,6 +40,23 @@ namespace Federation
                 void                checkCore(void);
         };
     }
+
+            class Ship
+        {
+            private:
+                int                 _length;
+                int                 _width;
+                std::string         _name;
+                WarpSystem::Core    *_core;
+
+            public:
+                Ship(int            length,
+                    int             width,
+                    std::string     name);
+                ~Ship();
+                void                setupCore(WarpSystem::Core *core);
+                void                checkCore(void);
+        };
 }
 
 namespace WarpSystem
