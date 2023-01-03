@@ -1,11 +1,11 @@
-#include "../includes/my_federation.hpp"
+#include "../includes/Federation.hpp"
 #include "../includes/WarpSystem.hpp"
 
 
 int     main(void)
 {
     Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6);
-    // Federation::Ship Independent(150, 230, "Greok");
+    Federation::Ship Independent(150, 230, "Greok");
     WarpSystem::QuantumReactor QR;
     if (QR.getStability() == true)
         std::cout << "getStability == true" << std::endl;
@@ -22,17 +22,17 @@ int     main(void)
 
     UssKreog.setupCore(&core);
     UssKreog.checkCore();
-    // Independent.setupCore(&core2);
-    // Independent.checkCore();
+    Independent.setupCore(&core2);
+    Independent.checkCore();
     
     QR.setStability(false);
     if (QR.getStability() == false)
         std::cout << "getStability == false" << std::endl;
     if (QR.isStable() == false)
         std::cout << "isStable == false" << std::endl;
-    // QR2.setStability(false);
+    QR2.setStability(false);
     UssKreog.checkCore();
-    // Independent.checkCore();
+    Independent.checkCore();
 
     return 0;
 }

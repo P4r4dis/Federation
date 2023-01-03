@@ -5,9 +5,10 @@ PART1_PATH 				= 	./part1_federation
 PART1_SRC_PATH			=	./part1_federation/sources
 PART1_TST_PATH			=	./part1_federation/tests
 PART1_INC_PATH			=	./part1_federation/includes
-NAME_FEDERATION			=	my_federation
+NAME_FEDERATION			=	Federation
 
-PART1_SRC				=	$(PART1_SRC_PATH)/my_federation.cpp
+PART1_SRC				=	$(PART1_SRC_PATH)/Federation.cpp \
+							$(PART1_SRC_PATH)/WarpSystem.cpp
 PART1_SRC_TEST			=	$(PART1_TST_PATH)/$(NAME_FEDERATION)_test.cpp
 TEST_NAME_FEDERATION 	= 	test_$(NAME_FEDERATION)
 
@@ -64,25 +65,25 @@ SRCS_PATH				=	$(PART1_SRC_PATH)
 # $(PART5_SRC_PATH)
 
 
-TST_PATH			=	$(PART1_TST_PATH)
+TST_PATH				=	$(PART1_TST_PATH)
 #$(PART2_TST_PATH)
 # $(PART3_TST_PATH)
 # $(PART4_TST_PATH)
 # $(PART5_SRC_PATH)
 
-NAME				=	my_federation
-TEST_NAME 			= 	test_$(NAME)
+NAME					=	a.out
+TEST_NAME 				= 	test_$(NAME)
 
 #INC_PATH 			= 	$(PART1_INC_PATH)
 #$(PART2_INC_PATH)
-INCFLAGS			+=	-I $(PART1_INC_PATH)
+INCFLAGS				+=	-I $(PART1_INC_PATH)
 # -I $(PART2_INC_PATH) -I $(PART3_INC_PATH) -I $(PART4_INC_PATH) -I $(PART5_INC_PATH)
 #$(INC_PATH)
 
-CPPFLAGS			+= 	-Wall -Wextra -Werror $(INCFLAGS)#-W -std=c++1z
+CPPFLAGS				+= 	-Wall -Wextra -Werror $(INCFLAGS)#-W -std=c++1z
 
-SRCS 				= 	$(PART1_SRC) \
-						$(CORE_PATH)/main.cpp
+SRCS 					= 	$(PART1_SRC) \
+							$(CORE_PATH)/main.cpp
 # $(PART2_SRC)
 # $(PART3_SRC)
 # $(PART4_SRC)
@@ -90,37 +91,37 @@ SRCS 				= 	$(PART1_SRC) \
 						
 #$(PART2_SRC)
 
-SRC_TEST 			= 	$(PART1_SRC_TEST)
+SRC_TEST 				= 	$(PART1_SRC_TEST)
 # $(PART2_SRC_TEST)
 # $(PART3_SRC_TEST)
 # $(PART4_SRC_TEST)
 # $(PART5_SRC_TEST)
 
-OBJS				=	$(SRCS:.cpp=.o)
-CLEAN				=	clean
-FCLEAN				=	fclean
+OBJS					=	$(SRCS:.cpp=.o)
+CLEAN					=	clean
+FCLEAN					=	fclean
 
-all					:	$(NAME)
+all						:	$(NAME)
 
-$(NAME)				:	$(OBJS)
-						$(G++) $(OBJS) -o $(NAME) $(CPPFLAGS)
+$(NAME)					:	$(OBJS)
+							$(G++) $(OBJS) $(CPPFLAGS)
 #$(G++) $(OBJS) -o $(NAME) $(CPPFLAGS)
 
-RM					=	rm -rf
+RM						=	rm -rf
 
-clean				:
-						$(RM) $(OBJS)
-						@$(MAKE) $(CLEAN) -C $(PART1_TST_PATH)
+clean					:
+							$(RM) $(OBJS)
+							@$(MAKE) $(CLEAN) -C $(PART1_TST_PATH)
 # @$(MAKE) $(CLEAN) -C $(PART2_TST_PATH)
 # @$(MAKE) $(CLEAN) -C $(PART3_TST_PATH)
 # @$(MAKE) $(CLEAN) -C $(PART4_TST_PATH)
 # @$(MAKE) $(CLEAN) -C $(PART5_TST_PATH)
 
 
-fclean				:	clean
-						$(RM) $(NAME) $(TEST_NAME)
-						@$(MAKE) $(FCLEAN) -C $(PART1_TST_PATH)
-						@$(MAKE) $(FCLEAN) -C $(PART1_PATH)
+fclean					:	clean
+							$(RM) $(NAME) $(TEST_NAME)
+							@$(MAKE) $(FCLEAN) -C $(PART1_TST_PATH)
+							@$(MAKE) $(FCLEAN) -C $(PART1_PATH)
 # @$(MAKE) $(FCLEAN) -C $(PART2_TST_PATH)
 # @$(MAKE) $(FCLEAN) -C $(PART2_PATH)
 # @$(MAKE) $(FCLEAN) -C $(PART3_TST_PATH)
@@ -130,11 +131,11 @@ fclean				:	clean
 # @$(MAKE) $(FCLEAN) -C $(PART5_TST_PATH)
 # @$(MAKE) $(FCLEAN) -C $(PART5_PATH)
 
-re					: 	fclean all
+re						: 	fclean all
 
-part1 				: 	fclean
-						@$(MAKE) -C $(PART1_PATH)
-						$(PART1_PATH)/$(NAME_FEDERATION)
+part1 					: 	fclean
+							@$(MAKE) -C $(PART1_PATH)
+							$(PART1_PATH)/$(NAME_FEDERATION)
 
 # part2 				: 	fclean
 # 						@$(MAKE) -C $(PART2_PATH)
@@ -152,9 +153,9 @@ part1 				: 	fclean
 # 						@$(MAKE) -C $(PART5_PATH)
 # 						$(PART5_PATH)/$(NAME_HOSPITAL)
 
-tests_run_part1		:	fclean
-						@$(MAKE) -C $(PART1_TST_PATH)
-						$(PART1_TST_PATH)/$(TEST_NAME_FEDERATION)
+tests_run_part1			:	fclean
+							@$(MAKE) -C $(PART1_TST_PATH)
+							$(PART1_TST_PATH)/$(TEST_NAME_FEDERATION)
 
 # tests_run_part2		:	fclean
 # 						@$(MAKE) -C $(PART2_TST_PATH)
@@ -172,8 +173,8 @@ tests_run_part1		:	fclean
 # 						@$(MAKE) -C $(PART5_TST_PATH)
 # 						$(PART5_TST_PATH)/$(TEST_NAME_HOSPITAL)
 
-tests_run			:	fclean
-						@$(MAKE) tests_run_part1
+tests_run				:	fclean
+							@$(MAKE) tests_run_part1
 # @$(MAKE) tests_run_part2
 # @$(MAKE) tests_run_part3
 # @$(MAKE) tests_run_part4
@@ -186,7 +187,7 @@ tests_run			:	fclean
 #						@$(MAKE) -C $(PART2_TST_PATH)
 #						$(PART2_TST_PATH)/$(TEST_NAME_NURSE)
 
-.PHONY				: 	all clean fclean re part1 tests_run_part1 tests_run
+.PHONY					: 	all clean fclean re part1 tests_run_part1 tests_run
 #part2 tests_run_part2 part3 tests_run_part3 part4 tests_run_part4 tests_run
 
 # $(CC) -o $(TEST_NAME) $(SRC) $(SRC_TEST) $(TESTFLAGS) $(LIBFLAG)

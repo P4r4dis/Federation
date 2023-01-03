@@ -5,7 +5,7 @@ SRC_PATH	=	./sources
 TST_PATH	=	./tests
 INC_PATH	=	./includes
 
-NAME		=	my_federation
+NAME		=	Federation
 TEST_NAME 	= 	test_$(NAME)
 
 
@@ -15,7 +15,7 @@ INCFLAGS	+=	-I $(INC_PATH)
 CPPFLAGS	+= -Wall -Wextra -Werror $(INCFLAGS)#-W -std=c++1z
 
 
-SRCS		=	$(SRC_PATH)/my_federation.cpp \
+SRCS		=	$(SRC_PATH)/Federation.cpp \
 				$(SRC_PATH)/WarpSystem.cpp \
 				$(CORE_PATH)/main_federation.cpp
 

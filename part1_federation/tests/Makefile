@@ -6,14 +6,14 @@ INC_PATH		=	../includes/
 TESTS_SRC_PATH	=	./tests_sources/
 TESTS_INC_PATH	=	./tests_includes/
 
-NAME			=	test_my_federation
+NAME			=	test_Federation
 
 INCFLAGS		+=	-I$(TESTS_INC_PATH) -I$(INC_PATH)
 CRITFLAGS		+=	--coverage -lcriterion --verbose
 CPPFLAGS		+=	-Wall -Wextra -Werror $(INCFLAGS) $(CRITFLAGS)
 
 
-SRCS			=	test_my_federation.cpp \
+SRCS			=	test_Federation.cpp \
 					$(TESTS_SRC_PATH)/test_sources.cpp
 
 

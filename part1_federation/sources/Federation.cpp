@@ -1,4 +1,4 @@
-#include "../includes/my_federation.hpp"
+#include "../includes/Federation.hpp"
 
 Federation::Starfleet::Ship::Ship(int length, int width, std::string name,
                                 short maxWarp) :
@@ -28,4 +28,30 @@ void    Federation::Starfleet::Ship::checkCore()
     "stable" : stability = "unstable";
     std::cout << "USS " << _name << ": The core is "
     << stability << " at the time." << std::endl;
+}
+
+///////////////////////////////////////////////////////////////////////
+Federation::Ship::Ship(int length, int width, std::string name) :
+                                _length(length), _width(width), _name(name)
+{
+    std::cout << "The independent ship " << _name << " just finished its construction." << std::endl;
+    std::cout << "It is " << _length << " m in length and "
+    << _width << " m in width." << std::endl;
+}
+
+Federation::Ship::~Ship()
+{}
+
+void    Federation::Ship::setupCore(WarpSystem::Core* core)
+{
+    _core = core;
+    std::cout << _name << ": The core is set." << std::endl;
+}
+
+void    Federation::Ship::checkCore()
+{   
+    std::string     stability = "";
+    _core->checkReactor()->isStable() == true ? stability = "stable" : stability = "unstable";
+    
+    std::cout << _name << ": The core is " << stability << " at the time." << std::endl;
 }

@@ -1,3 +1,6 @@
+#include "../part1_federation/includes/Federation.hpp"
+#include "../part1_federation/includes/WarpSystem.hpp"
+
 int     main(void)
 {
     Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6);
