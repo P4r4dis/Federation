@@ -11,6 +11,12 @@
 
 void                redirect_all_stdout(void);
 
+
+namespace WarpSystem
+{
+	class QuantumReactor;
+	class Core;
+}
 namespace Federation
 {
     namespace Starfleet
@@ -18,17 +24,19 @@ namespace Federation
         class Ship
         {
             private:
-                int             _length;
-                int             _width;
-                std::string     _name;
-                short           _maxWarp;
+                int                 _length;
+                int                 _width;
+                std::string         _name;
+                short               _maxWarp;
+                WarpSystem::Core    *_core;
 
             public:
-                Ship(int        length,
-                    int         width,
-                    std::string name,
-                    short       maxWarp);
+                Ship(int            length,
+                    int             width,
+                    std::string     name,
+                    short           maxWarp);
                 ~Ship();
+                void                setupCore(WarpSystem::Core *core);
         };
     }
 }

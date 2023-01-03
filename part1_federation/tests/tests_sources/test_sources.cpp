@@ -20,6 +20,7 @@ Federation::Starfleet::Ship::Ship(int length, int width, std::string name,
 
 Federation::Starfleet::Ship::~Ship()
 {}
+
 ///////////////////////////////////////////////////////
 WarpSystem::QuantumReactor::QuantumReactor() : _stability(true)
 {}
@@ -51,4 +52,10 @@ WarpSystem::Core::~Core()
 WarpSystem::QuantumReactor *WarpSystem::Core::checkReactor()
 {
     return _coreReactor;
+}
+
+void            Federation::Starfleet::Ship::setupCore(WarpSystem::Core* core)
+{
+    _core = core;
+    std::cout << "USS " << _name << ": The core is set." << std::endl;
 }
