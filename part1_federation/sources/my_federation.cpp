@@ -13,3 +13,9 @@ Federation::Starfleet::Ship::Ship(int length, int width, std::string name,
 
 Federation::Starfleet::Ship::~Ship()
 {}
+
+void    Federation::Starfleet::Ship::setupCore(WarpSystem::Core* core)
+{
+    _core = core;
+    std::cout << "USS " << _name << ": The core is set." << std::endl;
+}

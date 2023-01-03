@@ -20,7 +20,7 @@ int     main(void)
     if(core2.checkReactor() == &QR2)
         std::cout << "core2.checkReactor is OK" << std::endl;
 
-    // UssKreog.setupCore(&core);
+    UssKreog.setupCore(&core);
     // UssKreog.checkCore();
     // Independent.setupCore(&core2);
     // Independent.checkCore();
