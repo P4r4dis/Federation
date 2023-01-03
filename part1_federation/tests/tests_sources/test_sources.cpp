@@ -49,13 +49,21 @@ WarpSystem::Core::Core(QuantumReactor *coreReactor) : _coreReactor(coreReactor)
 WarpSystem::Core::~Core()
 {}
 
-WarpSystem::QuantumReactor *WarpSystem::Core::checkReactor()
+WarpSystem::QuantumReactor  *WarpSystem::Core::checkReactor()
 {
     return _coreReactor;
 }
 
-void            Federation::Starfleet::Ship::setupCore(WarpSystem::Core* core)
+void                        Federation::Starfleet::Ship::setupCore(WarpSystem::Core* core)
 {
     _core = core;
     std::cout << "USS " << _name << ": The core is set." << std::endl;
+}
+
+void            Federation::Starfleet::Ship::checkCore()
+{   
+    std::string     stability = "";
+    _core->checkReactor()->isStable() == true ? stability = "stable" : stability = "unstable";
+    
+    std::cout << "USS " << _name << ": The core is " << stability << " at the time." << std::endl;
 }

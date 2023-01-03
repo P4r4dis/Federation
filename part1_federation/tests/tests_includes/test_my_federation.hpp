@@ -37,6 +37,7 @@ namespace Federation
                     short           maxWarp);
                 ~Ship();
                 void                setupCore(WarpSystem::Core *core);
+                void                checkCore(void);
         };
     }
 }
@@ -65,8 +66,7 @@ namespace WarpSystem
             Core(QuantumReactor *coreReactor);
             ~Core();
 
-            QuantumReactor *checkReactor(void);
-
+            QuantumReactor  *checkReactor(void);
     };
 }
 

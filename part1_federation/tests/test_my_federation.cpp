@@ -61,6 +61,22 @@ It is 289 m in length and 132 m in width.\n\
 It can go to Warp 6!\n\
 USS Kreog: The core is set.\n");
 }
+
+Test(Federation_Starfleet_Ship, test_checkCore,.init=redirect_all_stdout)
+{
+    Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6);
+    WarpSystem::QuantumReactor  QR;
+    WarpSystem::Core            core(&QR);
+
+    UssKreog.setupCore(&core);
+    UssKreog.checkCore();
+    cr_assert_stdout_eq_str("The ship USS Kreog has been finished.\n\
+It is 289 m in length and 132 m in width.\n\
+It can go to Warp 6!\n\
+USS Kreog: The core is set.\n\
+USS Kreog: The core is stable at the time.\n");
+}
+
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;
