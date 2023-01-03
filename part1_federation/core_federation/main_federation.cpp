@@ -21,7 +21,7 @@ int     main(void)
         std::cout << "core2.checkReactor is OK" << std::endl;
 
     UssKreog.setupCore(&core);
-    // UssKreog.checkCore();
+    UssKreog.checkCore();
     // Independent.setupCore(&core2);
     // Independent.checkCore();
     
@@ -31,7 +31,7 @@ int     main(void)
     if (QR.isStable() == false)
         std::cout << "isStable == false" << std::endl;
     // QR2.setStability(false);
-    // UssKreog.checkCore();
+    UssKreog.checkCore();
     // Independent.checkCore();
 
     return 0;

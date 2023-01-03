@@ -24,6 +24,8 @@ namespace Federation
                     short           maxWarp);
                 ~Ship();
                 void                setupCore(WarpSystem::Core *core);
+                void                checkCore(void);
+
 
         };
     }
