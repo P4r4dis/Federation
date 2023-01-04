@@ -48,7 +48,7 @@ int     main(void)
     // UssKreog.promote(&James);
 
     Borg::Ship Cube;
-    // Cube.setupCore(&core2);
+    Cube.setupCore(&core2);
     // Cube.checkCore();
 
     return 0;

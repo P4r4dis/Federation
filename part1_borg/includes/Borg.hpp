@@ -1,16 +1,21 @@
 #ifndef __BORG__
 #   define __BORG__
 
-namespace           Borg
+#include "../../part0_federation/includes/WarpSystem.hpp"
+namespace                       Borg
 {
-    class           Ship
+    class                       Ship
     {
         private:
-            int     _side;
-            short   _maxWarp;
+            int                 _side;
+            short               _maxWarp;
+            WarpSystem::Core    *_core;
         public:
             Ship();
             ~Ship();
+
+            void                setupCore(WarpSystem::Core *core);
+            WarpSystem::Core    *getCore(void);
 
     };
 }
