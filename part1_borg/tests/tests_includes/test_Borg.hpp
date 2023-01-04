@@ -8,19 +8,24 @@
 #include <criterion/parameterized.h>
 #include <signal.h>
 
+#include "../../../part0_federation/includes/WarpSystem.hpp"
 
 void                redirect_all_stdout(void);
 
-namespace           Borg
+namespace                       Borg
 {
-    class           Ship
+    class                       Ship
     {
         private:
-            int     _side;
-            short   _maxWarp;
+            int                 _side;
+            short               _maxWarp;
+            WarpSystem::Core    *_core;
         public:
             Ship();
             ~Ship();
+
+            void                setupCore(WarpSystem::Core *core);
+            WarpSystem::Core    *getCore(void);
 
     };
 }

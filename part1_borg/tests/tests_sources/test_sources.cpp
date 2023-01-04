@@ -21,3 +21,12 @@ Borg::Ship::Ship() : _side(300), _maxWarp(9)
 Borg::Ship::~Ship()
 {}
 
+void                Borg::Ship::setupCore(WarpSystem::Core *core)
+{
+    _core = core;
+}
+
+WarpSystem::Core    *Borg::Ship::getCore(void)
+{
+    return _core;
+}
