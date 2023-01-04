@@ -11,4 +11,18 @@
 
 void                redirect_all_stdout(void);
 
+namespace           Borg
+{
+    class           Ship
+    {
+        private:
+            int     _side;
+            short   _maxWarp;
+        public:
+            Ship();
+            ~Ship();
+
+    };
+}
+
 #endif  // !__TEST_BORG__

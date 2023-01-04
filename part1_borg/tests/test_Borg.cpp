@@ -113,6 +113,18 @@ It is 150 m in length and 230 m in width.\n\
 Greok: The core is set.\n\
 Greok: The core is stable at the time.\n");
 }
+/////////////////////////////////////////////////////////////////////////////////////////
+//BORG
+/////////////////////////////////////////////////////////////////////////////////////////
+Test(Borg_Ship, test_constructor, .init=redirect_all_stdout)
+{
+    Borg::Ship cube;
+    
+    cr_assert_stdout_eq_str("We are the Borgs. Lower your shields and surrender yourselves unconditionally.\n\
+Your biological characteristics and technologies will be assimilated.\n\
+Resistance is futile.\n");
+}
+
 
 // Test(SickKoala, ctorDefault) {
 
