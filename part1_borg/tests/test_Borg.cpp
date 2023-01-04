@@ -141,10 +141,29 @@ Test(Borg_Ship, test_setupCore, .init=redirect_all_stdout)
     cr_assert_stdout_eq_str("We are the Borgs. Lower your shields and surrender yourselves unconditionally.\n\
 Your biological characteristics and technologies will be assimilated.\n\
 Resistance is futile.\n");
-
-
 }
 
+
+Test(Borg_Ship, test_checkCore, .init=redirect_all_stdout)
+{
+    Borg::Ship Cube;
+
+    WarpSystem::QuantumReactor  QR2;
+    cr_assert(QR2.getStability() == true);
+    cr_assert(QR2.isStable() == true);
+
+    WarpSystem::Core            core2(&QR2);
+    cr_assert(core2.checkReactor() == &QR2);
+
+    Cube.setupCore(&core2);
+    cr_assert(Cube.getCore() == &core2);
+
+    Cube.checkCore();
+    cr_assert_stdout_eq_str("We are the Borgs. Lower your shields and surrender yourselves unconditionally.\n\
+Your biological characteristics and technologies will be assimilated.\n\
+Resistance is futile.\n\
+Everything is in order.\n");
+}
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;

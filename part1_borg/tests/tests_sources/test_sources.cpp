@@ -30,3 +30,10 @@ WarpSystem::Core    *Borg::Ship::getCore(void)
 {
     return _core;
 }
+
+void                Borg::Ship::checkCore(void)
+{    
+    _core->checkReactor()->isStable() == true ?
+    std::cout << "Everything is in order." << std::endl :
+    std::cout << "Critical failure imminent." << std::endl;
+}
