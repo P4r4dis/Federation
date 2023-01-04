@@ -17,6 +17,8 @@ namespace                       Borg
             void                setupCore(WarpSystem::Core *core);
             WarpSystem::Core    *getCore(void);
 
+            void                checkCore(void);
+
     };
 }
 

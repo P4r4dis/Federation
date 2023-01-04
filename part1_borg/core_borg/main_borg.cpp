@@ -49,7 +49,7 @@ int     main(void)
 
     Borg::Ship Cube;
     Cube.setupCore(&core2);
-    // Cube.checkCore();
+    Cube.checkCore();
 
     return 0;
 }
