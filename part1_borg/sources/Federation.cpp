@@ -30,6 +30,12 @@ void    Federation::Starfleet::Ship::checkCore()
     << stability << " at the time." << std::endl;
 }
 
+void    Federation::Starfleet::Ship::promote(Federation::Starfleet::Captain    *captain)
+{
+    std::cout   << captain->getName() 
+                << ": I’m glad to be the captain of the USS "
+                << this->_name << "." << std::endl;
+}
 ///////////////////////////////////////////////////////////////////////
 Federation::Ship::Ship(int length, int width, std::string name) :
                                 _length(length), _width(width), _name(name)

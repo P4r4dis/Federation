@@ -3,6 +3,16 @@
 
 #include <iostream>
 #include "WarpSystem.hpp"
+
+namespace       Federation {
+	namespace   Starfleet {
+		class   Ship;
+		class   Captain;
+		class   Ensign;
+	}
+	class       Ship;
+}
+
 namespace       Federation
 {
     namespace   Starfleet
@@ -25,8 +35,7 @@ namespace       Federation
                 ~Ship();
                 void                setupCore(WarpSystem::Core *core);
                 void                checkCore(void);
-
-
+                void                promote(Federation::Starfleet::Captain *captain);
         };
         
         class   Captain
@@ -44,22 +53,22 @@ namespace       Federation
 
         };
     }
-        class   Ship
-        {
-            private:
-                int                 _length;
-                int                 _width;
-                std::string         _name;
-                WarpSystem::Core    *_core;
+    class   Ship
+    {
+        private:
+            int                 _length;
+            int                 _width;
+            std::string         _name;
+            WarpSystem::Core    *_core;
 
-            public:
-                Ship(int            length,
-                    int             width,
-                    std::string     name);
-                ~Ship();
-                void                setupCore(WarpSystem::Core *core);
-                void                checkCore(void);
-        };
+        public:
+            Ship(int            length,
+                int             width,
+                std::string     name);
+            ~Ship();
+            void                setupCore(WarpSystem::Core *core);
+            void                checkCore(void);
+    };
 }
 
 

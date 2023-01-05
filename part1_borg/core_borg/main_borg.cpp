@@ -37,9 +37,9 @@ int     main(void)
 
     Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6);
     Federation::Starfleet::Captain James("James T.Kirk");
-    std::cout << "Captain::getName = " << James.getName() << std::endl;
-    James.setAge(5);
-    std::cout << "Captain::setAge and getAge = " << James.getAge() << std::endl;
+    // std::cout << "Captain::getName = " << James.getName() << std::endl;
+    // James.setAge(5);
+    // std::cout << "Captain::setAge and getAge = " << James.getAge() << std::endl;
     // Federation::Starfleet::Ensign Ensign("Pavel Chekov");
     WarpSystem::QuantumReactor QR;
     WarpSystem::QuantumReactor QR2;
@@ -48,7 +48,7 @@ int     main(void)
 
     UssKreog.setupCore(&core);
     UssKreog.checkCore();
-    // UssKreog.promote(&James);
+    UssKreog.promote(&James);
 
     Borg::Ship Cube;
     Cube.setupCore(&core2);
