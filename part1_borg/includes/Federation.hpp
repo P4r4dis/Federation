@@ -39,6 +39,8 @@ namespace       Federation
                 ~Captain();
 
                 std::string         getName(void);
+                int                 getAge(void);
+                void                setAge(int  age);
 
         };
     }

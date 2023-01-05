@@ -68,3 +68,13 @@ std::string Federation::Starfleet::Captain::getName(void)
 {
     return _name;
 }
+
+int         Federation::Starfleet::Captain::getAge(void)
+{
+    return _age;
+}
+
+void        Federation::Starfleet::Captain::setAge(int  age)
+{
+    _age = age;
+}
