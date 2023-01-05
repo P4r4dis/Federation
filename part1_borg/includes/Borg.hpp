@@ -1,7 +1,7 @@
 #ifndef __BORG__
 #   define __BORG__
 
-#include "../../part0_federation/includes/WarpSystem.hpp"
+#include "WarpSystem.hpp"
 namespace                       Borg
 {
     class                       Ship

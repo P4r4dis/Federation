@@ -20,8 +20,8 @@ INCFLAGS	+=	-I $(INC_PATH) -I $(INC_PATH_FEDERATION)
 CPPFLAGS	+= -Wall -Wextra -Werror $(INCFLAGS)#-W -std=c++1z
 
 
-SRCS		=	$(SRC_PATH_FEDERATION)/Federation.cpp \
-				$(SRC_PATH_FEDERATION)/WarpSystem.cpp \
+SRCS		=	$(SRC_PATH)/Federation.cpp \
+				$(SRC_PATH)/WarpSystem.cpp \
 				$(SRC_PATH)/Borg.cpp \
 				$(CORE_PATH)/main_borg.cpp
 

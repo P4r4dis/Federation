@@ -1,5 +1,3 @@
-// #include "../includes/my_federation.hpp"
-#include "../../part0_federation/includes/Federation.hpp"
 #include "./tests_includes/test_Borg.hpp"
 
 

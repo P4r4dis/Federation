@@ -8,9 +8,98 @@
 #include <criterion/parameterized.h>
 #include <signal.h>
 
-#include "../../../part0_federation/includes/WarpSystem.hpp"
-
 void                redirect_all_stdout(void);
+
+namespace WarpSystem
+{
+	class QuantumReactor;
+	class Core;
+}
+
+namespace   Borg
+{
+    class Ship;
+}
+
+namespace   Federation
+{
+    namespace Starfleet
+    {
+        class Ship;
+    }
+    class Ship;
+}
+
+
+namespace Federation
+{
+    namespace Starfleet
+    {
+        class Ship
+        {
+            private:
+                int                 _length;
+                int                 _width;
+                std::string         _name;
+                short               _maxWarp;
+                WarpSystem::Core    *_core;
+
+            public:
+                Ship(int            length,
+                    int             width,
+                    std::string     name,
+                    short           maxWarp);
+                ~Ship();
+                void                setupCore(WarpSystem::Core *core);
+                void                checkCore(void);
+        };
+    }
+
+            class Ship
+        {
+            private:
+                int                 _length;
+                int                 _width;
+                std::string         _name;
+                WarpSystem::Core    *_core;
+
+            public:
+                Ship(int            length,
+                    int             width,
+                    std::string     name);
+                ~Ship();
+                void                setupCore(WarpSystem::Core *core);
+                void                checkCore(void);
+        };
+}
+
+namespace WarpSystem
+{
+    class QuantumReactor
+    {
+        private:
+            bool    _stability;
+        public:
+            QuantumReactor();
+            ~QuantumReactor();
+
+            bool    getStability(void);
+            bool    isStable(void);
+
+            void    setStability(bool stability);
+    };
+
+    class Core
+    {
+        private:
+            QuantumReactor *_coreReactor;
+        public:
+            Core(QuantumReactor *coreReactor);
+            ~Core();
+
+            QuantumReactor  *checkReactor(void);
+    };
+}
 
 namespace                       Borg
 {

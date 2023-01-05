@@ -19,8 +19,6 @@ CPPFLAGS		+=	-Wall -Wextra -Werror $(INCFLAGS) $(CRITFLAGS)
 
 
 SRCS			=	test_Borg.cpp \
-					$(SRC_PATH_FEDERATION)/Federation.cpp \
-					$(SRC_PATH_FEDERATION)/WarpSystem.cpp \
 					$(TESTS_SRC_PATH)/test_sources.cpp
 
 
