@@ -27,6 +27,7 @@ namespace   Federation
     {
         class Ship;
         class Captain;
+        class Ensign;
     }
     class Ship;
 }
@@ -69,6 +70,15 @@ namespace Federation
                 int                 getAge(void);
                 void                setAge(int  age);
 
+        };
+
+        class Ensign
+        {
+            private:
+                std::string         _name;
+            public:
+                Ensign(std::string  name);
+                ~Ensign();
         };
     }
 

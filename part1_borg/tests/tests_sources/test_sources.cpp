@@ -153,3 +153,12 @@ void        Federation::Starfleet::Ship::promote(Captain    *captain)
                 << ": I’m glad to be the captain of the USS "
                 << this->_name << "." << std::endl;
 }
+
+//////////////////////////////////////////////////////////////////////
+Federation::Starfleet::Ensign::Ensign(std::string     name) : _name(name)
+{
+    std::cout << "Ensign " << _name << ", awaiting orders." << std::endl;
+}
+
+Federation::Starfleet::Ensign::~Ensign()
+{}

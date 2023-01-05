@@ -191,6 +191,13 @@ It is 289 m in length and 132 m in width.\n\
 It can go to Warp 6!\n\
 James T. Kirk: I’m glad to be the captain of the USS Kreog.\n");
 }
+
+Test(Federation_Starfleet_Ensign, test_CTOR, .init=redirect_all_stdout)
+{
+    Federation::Starfleet::Ensign   Ensign("Pavel Chekov");
+    
+    cr_assert_stdout_eq_str("Ensign Pavel Chekov, awaiting orders.\n");
+}
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;
