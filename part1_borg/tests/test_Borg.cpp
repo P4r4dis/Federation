@@ -169,6 +169,15 @@ Test(Federation_Starfleet_Captain, test_CTOR)
 
     cr_assert(James.getName() == "James T. Kirk");
 }
+
+Test(Federation_Starfleet_Captain, test_getAge_and_setAge)
+{
+    Federation::Starfleet::Captain  James("James T. Kirk");
+
+    James.setAge(5);
+    cr_assert(James.getAge() == 5);
+
+}
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;
