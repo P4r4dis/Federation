@@ -2,31 +2,31 @@
 #   define __WARPSYSTEM__
 
 #include <iostream>
-namespace WarpSystem
+namespace   WarpSystem
 {
-    class QuantumReactor
+    class   QuantumReactor
     {
         private:
-            bool    _stability;
+            bool                _stability;
         public:
             QuantumReactor();
             ~QuantumReactor();
 
-            bool    getStability(void);
-            bool    isStable(void);
+            bool                getStability(void);
+            bool                isStable(void);
 
-            void    setStability(bool stability);
+            void                setStability(bool stability);
     };
     
-    class Core
+    class   Core
     {
         private:
-            QuantumReactor *_coreReactor;
+            QuantumReactor      *_coreReactor;
         public:
             Core(QuantumReactor *coreReactor);
             ~Core();
 
-            QuantumReactor *checkReactor(void);
+            QuantumReactor      *checkReactor(void);
 
     };
 }

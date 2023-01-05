@@ -55,3 +55,16 @@ void    Federation::Ship::checkCore()
     
     std::cout << _name << ": The core is " << stability << " at the time." << std::endl;
 }
+////////////////////////////////////////////////////////////////
+//CAPTAIN
+///////////////////////////////////////////////////////////////
+Federation::Starfleet::Captain::Captain(std::string name) : _name(name)
+{}
+
+Federation::Starfleet::Captain::~Captain()
+{}
+
+std::string Federation::Starfleet::Captain::getName(void)
+{
+    return _name;
+}

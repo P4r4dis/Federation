@@ -1,5 +1,5 @@
-#include "../../part0_federation/includes/Federation.hpp"
-#include "../../part0_federation/includes/WarpSystem.hpp"
+#include "../includes/Federation.hpp"
+#include "../includes/WarpSystem.hpp"
 #include "../includes/Borg.hpp"
 
 
@@ -36,7 +36,8 @@ int     main(void)
     // Independent.checkCore();
 
     Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6);
-    // Federation::Starfleet::Captain James("James T.Kirk");
+    Federation::Starfleet::Captain James("James T.Kirk");
+    std::cout << "Captain::getName = " << James.getName() << std::endl;
     // Federation::Starfleet::Ensign Ensign("Pavel Chekov");
     WarpSystem::QuantumReactor QR;
     WarpSystem::QuantumReactor QR2;

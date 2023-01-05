@@ -3,11 +3,11 @@
 
 #include <iostream>
 #include "WarpSystem.hpp"
-namespace Federation
+namespace       Federation
 {
-    namespace Starfleet
+    namespace   Starfleet
     {
-        class Ship
+        class   Ship
         {
             private:
                 int                 _length;
@@ -28,8 +28,21 @@ namespace Federation
 
 
         };
+        
+        class   Captain
+        {
+            private:
+                std::string         _name;
+                int                 _age;
+            public:
+                Captain(std::string name);
+                ~Captain();
+
+                std::string         getName(void);
+
+        };
     }
-        class Ship
+        class   Ship
         {
             private:
                 int                 _length;
