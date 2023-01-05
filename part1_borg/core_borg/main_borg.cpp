@@ -40,7 +40,7 @@ int     main(void)
     // std::cout << "Captain::getName = " << James.getName() << std::endl;
     // James.setAge(5);
     // std::cout << "Captain::setAge and getAge = " << James.getAge() << std::endl;
-    // Federation::Starfleet::Ensign Ensign("Pavel Chekov");
+    Federation::Starfleet::Ensign Ensign("Pavel Chekov");
     WarpSystem::QuantumReactor QR;
     WarpSystem::QuantumReactor QR2;
     WarpSystem::Core core(&QR);

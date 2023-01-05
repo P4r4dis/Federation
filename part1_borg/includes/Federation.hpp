@@ -52,6 +52,14 @@ namespace       Federation
                 void                setAge(int  age);
 
         };
+        class Ensign
+        {
+            private:
+                std::string         _name;
+            public:
+                explicit Ensign(std::string  name);
+                ~Ensign();
+        };
     }
     class   Ship
     {

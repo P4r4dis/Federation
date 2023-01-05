@@ -84,3 +84,11 @@ void        Federation::Starfleet::Captain::setAge(int  age)
 {
     _age = age;
 }
+//////////////////////////////////////////////////////////////////////
+Federation::Starfleet::Ensign::Ensign(std::string     name) : _name(name)
+{
+    std::cout << "Ensign " << _name << ", awaiting orders." << std::endl;
+}
+
+Federation::Starfleet::Ensign::~Ensign()
+{}
