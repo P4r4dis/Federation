@@ -53,6 +53,7 @@ namespace Federation
                 ~Ship();
                 void                setupCore(WarpSystem::Core *core);
                 void                checkCore(void);
+                void                promote(Captain *captain);
         };
 
         class Captain

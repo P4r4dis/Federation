@@ -146,3 +146,10 @@ void        Federation::Starfleet::Captain::setAge(int  age)
 {
     _age = age;
 }
+
+void        Federation::Starfleet::Ship::promote(Captain    *captain)
+{
+    std::cout   << captain->getName() 
+                << ": I’m glad to be the captain of the USS "
+                << this->_name << "." << std::endl;
+}
