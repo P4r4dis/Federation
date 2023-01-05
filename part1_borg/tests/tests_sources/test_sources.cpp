@@ -122,3 +122,17 @@ void                Borg::Ship::checkCore(void)
     std::cout << "Everything is in order." << std::endl :
     std::cout << "Critical failure imminent." << std::endl;
 }
+
+////////////////////////////////////////////////////////////////
+//CAPTAIN
+///////////////////////////////////////////////////////////////
+Federation::Starfleet::Captain::Captain(std::string name) : _name(name)
+{}
+
+Federation::Starfleet::Captain::~Captain()
+{}
+
+std::string Federation::Starfleet::Captain::getName(void)
+{
+    return _name;
+}

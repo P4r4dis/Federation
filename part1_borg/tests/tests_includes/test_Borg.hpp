@@ -26,6 +26,7 @@ namespace   Federation
     namespace Starfleet
     {
         class Ship;
+        class Captain;
     }
     class Ship;
 }
@@ -52,6 +53,19 @@ namespace Federation
                 ~Ship();
                 void                setupCore(WarpSystem::Core *core);
                 void                checkCore(void);
+        };
+
+        class Captain
+        {
+            private:
+                std::string         _name;
+                int                 _age;
+            public:
+                Captain(std::string name);
+                ~Captain();
+
+                std::string         getName(void);
+
         };
     }
 

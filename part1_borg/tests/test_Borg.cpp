@@ -162,6 +162,13 @@ Your biological characteristics and technologies will be assimilated.\n\
 Resistance is futile.\n\
 Everything is in order.\n");
 }
+
+Test(Federation_Starfleet_Captain, test_CTOR)
+{
+    Federation::Starfleet::Captain  James("James T. Kirk");
+
+    cr_assert(James.getName() == "James T. Kirk");
+}
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;
