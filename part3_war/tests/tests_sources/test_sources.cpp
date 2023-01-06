@@ -10,7 +10,8 @@ void    redirect_all_stdout(void)
 Federation::Starfleet::Ship::Ship(int length, int width, std::string name,
                                 short maxWarp) :
                                 _length(length), _width(width), _name(name),
-                                _maxWarp(maxWarp), _location(_home)
+                                _maxWarp(maxWarp), _location(_home),
+                                _shield(100)
 {
     std::cout << "The ship USS " << _name << " has been finished." << std::endl;
     std::cout << "It is " << _length << " m in length and "
@@ -90,6 +91,16 @@ bool            Federation::Starfleet::Ship::move(void)
     // }
     // else
     //     return false;
+}
+
+int             Federation::Starfleet::Ship::getShield(void)
+{
+    return _shield;
+}
+
+void            Federation::Starfleet::Ship::setShield(int shield)
+{
+    _shield = shield;
 }
 ///////////////////////////////////////////////////////
 WarpSystem::QuantumReactor::QuantumReactor() : _stability(true)

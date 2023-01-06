@@ -294,6 +294,19 @@ Test(Destination, test_move)
     cr_assert(Cube.move() == true, "Move function must returned true");
     cr_assert(Cube.getLocation() == UNICOMPLEX, "Correct location is VULCAN");
 }
+
+////////////////////////////////////////////////////////////////////////////
+
+Test(War, test_shield)
+{
+    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6);
+    cr_assert(UssKreog.getShield() == 100);
+    UssKreog.setShield(50);
+    cr_assert(UssKreog.getShield() == 50);
+    // Federation::Ship                Independent(150, 230, "Greok");
+    // Borg::Ship                      Cube;
+}
+
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;
