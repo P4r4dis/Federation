@@ -28,6 +28,8 @@ namespace       Federation
                 WarpSystem::Core    *_core;
                 Destination         _home{EARTH};
                 Destination         _location;
+                int                 _shield;
+
 
             public:
                 Ship(int            length,
@@ -44,6 +46,8 @@ namespace       Federation
                 bool                move(int warp); // set _location to _home
                 bool                move(Destination d); // set _location to d
                 bool                move(void); // set _location to _home
+                int                 getShield(void);
+                void                setShield(int shield);
         };
         
         class   Captain
