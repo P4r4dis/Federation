@@ -223,7 +223,7 @@ Test(Destination, test_enum)
     cr_assert_eq(home, UNICOMPLEX);
 }
 
-Test(Federation_Starfleet_Ship_Destination, test_CTOR_enum)
+Test(Destination, test_CTOR_enum)
 {
     Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6);
     cr_assert(UssKreog.getLocation() == EARTH);
@@ -236,6 +236,63 @@ Test(Federation_Starfleet_Ship_Destination, test_CTOR_enum)
     cr_assert(Cube.getLocation() == UNICOMPLEX);
     cr_assert(Cube.getHome() == UNICOMPLEX);
 
+}
+
+Test(Destination, test_move)
+{
+    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6);
+    WarpSystem::QuantumReactor      QR;
+    WarpSystem::Core                core(&QR);
+
+    UssKreog.setupCore(&core);
+    cr_assert(UssKreog.getLocation() == EARTH);
+    cr_assert(UssKreog.getHome() == EARTH);
+
+    cr_assert(UssKreog.move(4, VULCAN) == true, "Move function returned false");
+    cr_assert(UssKreog.getLocation() == VULCAN, "Incorrect location");
+
+    cr_assert(UssKreog.move(5) == true, "Move function must returned true");
+    cr_assert(UssKreog.getLocation() == EARTH, "Correct location is EARTH");
+
+    cr_assert(UssKreog.move(UNICOMPLEX) == true, "Move function must returned true");
+    cr_assert(UssKreog.getLocation() == UNICOMPLEX, "Correct location is UNICOMPLEX");
+
+    cr_assert(UssKreog.move() == true, "Move function must returned true");
+    cr_assert(UssKreog.getLocation() == EARTH, "Correct location is EARTH");
+
+    Federation::Ship                Independent(150, 230, "Greok");
+    Independent.setupCore(&core);
+    cr_assert(Independent.getLocation() == VULCAN);
+    cr_assert(Independent.getHome() == VULCAN);
+
+    cr_assert(Independent.move(1, EARTH) == true, "Move function returned true");
+    cr_assert(Independent.getLocation() == EARTH, "Incorrect location");
+
+    cr_assert(Independent.move(1) == true, "Move function must returned true");
+    cr_assert(Independent.getLocation() == VULCAN, "Correct location is VULCAN");
+
+    cr_assert(Independent.move(UNICOMPLEX) == true, "Move function must returned true");
+    cr_assert(Independent.getLocation() == UNICOMPLEX, "Correct location is UNICOMPLEX");
+
+    cr_assert(Independent.move() == true, "Move function must returned true");
+    cr_assert(Independent.getLocation() == VULCAN, "Correct location is VULCAN");
+
+    Borg::Ship                      Cube;
+    Cube.setupCore(&core);
+    cr_assert(Cube.getLocation() == UNICOMPLEX);
+    cr_assert(Cube.getHome() == UNICOMPLEX);
+
+    cr_assert(Cube.move(1, EARTH) == true, "Move function returned true");
+    cr_assert(Cube.getLocation() == EARTH, "Incorrect location");
+
+    cr_assert(Cube.move(5) == true, "Move function must returned true");
+    cr_assert(Cube.getLocation() == UNICOMPLEX, "Correct location is UNICOMPLEX");
+
+    cr_assert(Cube.move(VULCAN) == true, "Move function must returned true");
+    cr_assert(Cube.getLocation() == VULCAN, "Correct location is VULCAN");
+
+    cr_assert(Cube.move() == true, "Move function must returned true");
+    cr_assert(Cube.getLocation() == UNICOMPLEX, "Correct location is VULCAN");
 }
 // Test(SickKoala, ctorDefault) {
 

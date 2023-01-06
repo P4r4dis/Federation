@@ -44,6 +44,53 @@ Destination     Federation::Starfleet::Ship::getHome(void)
 {
     return _home;
 }
+
+bool            Federation::Starfleet::Ship::move(int warp, Destination d)
+{
+    if (warp <= _maxWarp && d != _location && _core->checkReactor()->getStability() == true)
+    {
+        _location = d;
+        return true;
+    }
+    else
+        return false;
+}
+
+bool            Federation::Starfleet::Ship::move(int warp)
+{
+    return move(warp, _home);
+    // if (warp <= _maxWarp && _home != _location && _core->checkReactor()->getStability() == true)
+    // {
+    //     _location = _home;
+    //     return true;
+    // }
+    // else
+    //     return false;
+}
+
+bool            Federation::Starfleet::Ship::move(Destination d)
+{
+    return move(_maxWarp, d);
+    // if (d != _location && _core->checkReactor()->getStability() == true)
+    // {
+    //     _location = d;
+    //     return true;
+    // }
+    // else
+    //     return false;
+}
+
+bool            Federation::Starfleet::Ship::move(void)
+{
+    return move(_maxWarp, _home);
+    // if (_core->checkReactor()->getStability() == true)
+    // {
+    //     _location = _home;
+    //     return true;
+    // }
+    // else
+    //     return false;
+}
 ///////////////////////////////////////////////////////
 WarpSystem::QuantumReactor::QuantumReactor() : _stability(true)
 {}
@@ -113,6 +160,58 @@ Destination     Federation::Ship::getHome(void)
 {
     return _home;
 }
+
+int             Federation::Ship::getMaxWarp(void)
+{
+    return 1;
+}
+
+bool            Federation::Ship::move(int warp, Destination d)
+{
+    if (warp <= getMaxWarp() && d != _location && _core->checkReactor()->getStability() == true)
+    {
+        _location = d;
+        return true;
+    }
+    else
+        return false;
+}
+
+bool            Federation::Ship::move(int warp)
+{
+    return move(warp, _home);
+    // if (warp <= getMaxWarp() && _home != _location && _core->checkReactor()->getStability() == true)
+    // {
+    //     _location = _home;
+    //     return true;
+    // }
+    // else
+    //     return false;
+}
+
+bool            Federation::Ship::move(Destination d)
+{
+    return move(getMaxWarp(), d);
+    // if (d != _location && _core->checkReactor()->getStability() == true)
+    // {
+    //     _location = d;
+    //     return true;
+    // }
+    // else
+    //     return false;
+}
+
+bool            Federation::Ship::move(void)
+{
+    return move(getMaxWarp(), _home);
+    // if (_core->checkReactor()->getStability() == true)
+    // {
+    //     _location = _home;
+    //     return true;
+    // }
+    // else
+    //     return false;
+}
 ///////////////////////////////////////////////////////////
 Borg::Ship::Ship() : _side(300), _maxWarp(9), _location(_home)
 {
@@ -152,6 +251,54 @@ Destination         Borg::Ship::getLocation(void)
 Destination         Borg::Ship::getHome(void)
 {
     return _home;
+}
+
+bool                Borg::Ship::move(int warp, Destination d)
+{
+    if (warp <= _maxWarp && d != _location && _core->checkReactor()->getStability() == true)
+    {
+        _location = d;
+        return true;
+    }
+    else
+        return false;
+}
+
+bool                Borg::Ship::move(int warp)
+{
+    std::cout << "TEST" << std::endl;
+    return move(warp, _home);
+    // if (warp <= getMaxWarp() && _home != _location && _core->checkReactor()->getStability() == true)
+    // {
+    //     _location = _home;
+    //     return true;
+    // }
+    // else
+    //     return false;
+}
+
+bool                Borg::Ship::move(Destination d)
+{
+    return move(_maxWarp, d);
+    // if (d != _location && _core->checkReactor()->getStability() == true)
+    // {
+    //     _location = d;
+    //     return true;
+    // }
+    // else
+    //     return false;
+}
+
+bool                Borg::Ship::move(void)
+{
+    return move(_maxWarp, _home);
+    // if (_core->checkReactor()->getStability() == true)
+    // {
+    //     _location = _home;
+    //     return true;
+    // }
+    // else
+    //     return false;
 }
 ////////////////////////////////////////////////////////////////
 //CAPTAIN
