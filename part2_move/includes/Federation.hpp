@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "WarpSystem.hpp"
+#include "Destination.hpp"
 
 namespace       Federation {
 	namespace   Starfleet {
@@ -25,7 +26,8 @@ namespace       Federation
                 std::string         _name;
                 short               _maxWarp;
                 WarpSystem::Core    *_core;
-
+                Destination         _home{EARTH};
+                Destination         _location;
 
             public:
                 Ship(int            length,
@@ -36,6 +38,8 @@ namespace       Federation
                 void                setupCore(WarpSystem::Core *core);
                 void                checkCore(void);
                 void                promote(Federation::Starfleet::Captain *captain);
+                Destination         getLocation(void);
+                Destination         getHome(void);
         };
         
         class   Captain
@@ -68,7 +72,8 @@ namespace       Federation
             int                 _width;
             std::string         _name;
             WarpSystem::Core    *_core;
-
+            Destination         _home{VULCAN};
+            Destination         _location;
         public:
             Ship(int            length,
                 int             width,
@@ -76,6 +81,8 @@ namespace       Federation
             ~Ship();
             void                setupCore(WarpSystem::Core *core);
             void                checkCore(void);
+            Destination         getLocation(void);
+            Destination         getHome(void);
     };
 }
 

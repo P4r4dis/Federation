@@ -1,7 +1,7 @@
 #include "../includes/Borg.hpp"
 #include <iostream>
 
-Borg::Ship::Ship() : _side(300), _maxWarp(9)
+Borg::Ship::Ship() : _side(300), _maxWarp(9), _location(_home)
 {
     std::cout << "We are the Borgs." << 
     " Lower your shields and surrender yourselves unconditionally."
@@ -29,4 +29,14 @@ void                Borg::Ship::checkCore(void)
     _core->checkReactor()->isStable() == true ?
     std::cout << "Everything is in order." << std::endl :
     std::cout << "Critical failure imminent." << std::endl;
+}
+
+Destination         Borg::Ship::getLocation(void)
+{
+    return _location;
+}
+
+Destination         Borg::Ship::getHome(void)
+{
+    return _home;
 }

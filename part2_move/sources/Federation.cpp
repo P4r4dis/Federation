@@ -3,7 +3,7 @@
 Federation::Starfleet::Ship::Ship(int length, int width, std::string name,
                                 short maxWarp) :
                                 _length(length), _width(width), _name(name),
-                                _maxWarp(maxWarp)
+                                _maxWarp(maxWarp), _location(_home)
 {
     std::cout << "The ship USS " << _name << " has been finished." << std::endl;
     std::cout << "It is " << _length << " m in length and "
@@ -14,13 +14,13 @@ Federation::Starfleet::Ship::Ship(int length, int width, std::string name,
 Federation::Starfleet::Ship::~Ship()
 {}
 
-void    Federation::Starfleet::Ship::setupCore(WarpSystem::Core* core)
+void            Federation::Starfleet::Ship::setupCore(WarpSystem::Core* core)
 {
     _core = core;
     std::cout << "USS " << _name << ": The core is set." << std::endl;
 }
 
-void    Federation::Starfleet::Ship::checkCore()
+void            Federation::Starfleet::Ship::checkCore()
 {   
     std::string     stability = "";
 
@@ -30,15 +30,26 @@ void    Federation::Starfleet::Ship::checkCore()
     << stability << " at the time." << std::endl;
 }
 
-void    Federation::Starfleet::Ship::promote(Federation::Starfleet::Captain    *captain)
+void            Federation::Starfleet::Ship::promote(Federation::Starfleet::Captain    *captain)
 {
     std::cout   << captain->getName() 
                 << ": I’m glad to be the captain of the USS "
                 << this->_name << "." << std::endl;
 }
+
+Destination     Federation::Starfleet::Ship::getLocation(void)
+{
+    return _location;
+}
+
+Destination     Federation::Starfleet::Ship::getHome(void)
+{
+    return _home;
+}
 ///////////////////////////////////////////////////////////////////////
 Federation::Ship::Ship(int length, int width, std::string name) :
-                                _length(length), _width(width), _name(name)
+                                _length(length), _width(width), _name(name),
+                                _location(_home)
 {
     std::cout << "The independent ship " << _name << " just finished its construction." << std::endl;
     std::cout << "It is " << _length << " m in length and "
@@ -48,18 +59,28 @@ Federation::Ship::Ship(int length, int width, std::string name) :
 Federation::Ship::~Ship()
 {}
 
-void    Federation::Ship::setupCore(WarpSystem::Core* core)
+void            Federation::Ship::setupCore(WarpSystem::Core* core)
 {
     _core = core;
     std::cout << _name << ": The core is set." << std::endl;
 }
 
-void    Federation::Ship::checkCore()
+void            Federation::Ship::checkCore()
 {   
     std::string     stability = "";
     _core->checkReactor()->isStable() == true ? stability = "stable" : stability = "unstable";
     
     std::cout << _name << ": The core is " << stability << " at the time." << std::endl;
+}
+
+Destination     Federation::Ship::getLocation(void)
+{
+    return _location;
+}
+
+Destination     Federation::Ship::getHome(void)
+{
+    return _home;
 }
 ////////////////////////////////////////////////////////////////
 //CAPTAIN

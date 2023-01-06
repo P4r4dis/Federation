@@ -54,5 +54,19 @@ int     main(void)
     Cube.setupCore(&core2);
     Cube.checkCore();
 
+    std::cout   << "UssKreog.getLocation(EARTH) = " 
+                << UssKreog.getLocation() << std::endl;
+    std::cout   << "UssKreog.getHome(EARTH) = " 
+                << UssKreog.getHome() << std::endl;
+
+    Federation::Ship    Independent(150, 230, "Greok");
+    std::cout   << "Independent.getLocation(VULCAN) = " 
+                << Independent.getLocation() << std::endl;
+    std::cout   << "Independent.getHome(VULCAN) = " 
+                << Independent.getHome() << std::endl;
+    std::cout   << "Cube.getLocation(UNICOMPLEX) = " 
+                << Cube.getLocation() << std::endl;
+    std::cout   << "Cube.getHome(UNICOMPLEX) = " 
+                << Cube.getHome() << std::endl;
     return 0;
 }

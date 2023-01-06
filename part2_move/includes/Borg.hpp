@@ -2,6 +2,7 @@
 #   define __BORG__
 
 #include "WarpSystem.hpp"
+#include "Destination.hpp"
 namespace                       Borg
 {
     class                       Ship
@@ -10,6 +11,8 @@ namespace                       Borg
             int                 _side;
             short               _maxWarp;
             WarpSystem::Core    *_core;
+            Destination         _home{UNICOMPLEX};
+            Destination         _location;
         public:
             Ship();
             ~Ship();
@@ -18,6 +21,8 @@ namespace                       Borg
             WarpSystem::Core    *getCore(void);
 
             void                checkCore(void);
+            Destination         getLocation(void);
+            Destination         getHome(void);
 
     };
 }
