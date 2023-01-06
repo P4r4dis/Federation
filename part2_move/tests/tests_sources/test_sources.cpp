@@ -10,7 +10,7 @@ void    redirect_all_stdout(void)
 Federation::Starfleet::Ship::Ship(int length, int width, std::string name,
                                 short maxWarp) :
                                 _length(length), _width(width), _name(name),
-                                _maxWarp(maxWarp)
+                                _maxWarp(maxWarp), _location(_home)
 {
     std::cout << "The ship USS " << _name << " has been finished." << std::endl;
     std::cout << "It is " << _length << " m in length and "
@@ -33,6 +33,16 @@ void            Federation::Starfleet::Ship::checkCore()
     _core->checkReactor()->isStable() == true ? stability = "stable" : stability = "unstable";
     
     std::cout << "USS " << _name << ": The core is " << stability << " at the time." << std::endl;
+}
+
+Destination     Federation::Starfleet::Ship::getLocation(void)
+{
+    return _location;
+}
+
+Destination     Federation::Starfleet::Ship::getHome(void)
+{
+    return _home;
 }
 ///////////////////////////////////////////////////////
 WarpSystem::QuantumReactor::QuantumReactor() : _stability(true)
@@ -69,7 +79,8 @@ WarpSystem::QuantumReactor  *WarpSystem::Core::checkReactor()
 
 ///////////////////////////////
 Federation::Ship::Ship(int length, int width, std::string name) :
-                                _length(length), _width(width), _name(name)
+                                _length(length), _width(width), _name(name),
+                                _location(_home)
 {
     std::cout << "The independent ship " << _name << " just finished its construction." << std::endl;
     std::cout << "It is " << _length << " m in length and "
@@ -79,7 +90,7 @@ Federation::Ship::Ship(int length, int width, std::string name) :
 Federation::Ship::~Ship()
 {}
 
-void                        Federation::Ship::setupCore(WarpSystem::Core* core)
+void            Federation::Ship::setupCore(WarpSystem::Core* core)
 {
     _core = core;
     std::cout << _name << ": The core is set." << std::endl;
@@ -93,7 +104,17 @@ void            Federation::Ship::checkCore()
     std::cout << _name << ": The core is " << stability << " at the time." << std::endl;
 }
 
-Borg::Ship::Ship() : _side(300), _maxWarp(9)
+Destination     Federation::Ship::getLocation(void)
+{
+    return _location;
+}
+
+Destination     Federation::Ship::getHome(void)
+{
+    return _home;
+}
+///////////////////////////////////////////////////////////
+Borg::Ship::Ship() : _side(300), _maxWarp(9), _location(_home)
 {
     std::cout << "We are the Borgs." << 
     " Lower your shields and surrender yourselves unconditionally."
@@ -123,6 +144,15 @@ void                Borg::Ship::checkCore(void)
     std::cout << "Critical failure imminent." << std::endl;
 }
 
+Destination         Borg::Ship::getLocation(void)
+{
+    return _location;
+}
+
+Destination         Borg::Ship::getHome(void)
+{
+    return _home;
+}
 ////////////////////////////////////////////////////////////////
 //CAPTAIN
 ///////////////////////////////////////////////////////////////

@@ -1,4 +1,6 @@
 #include "./tests_includes/test_move.hpp"
+#include "./tests_includes/test_destination.hpp"
+
 
 
 Test(Federation_Starfleet_Ship, test_constructor, .init=redirect_all_stdout)
@@ -197,6 +199,43 @@ Test(Federation_Starfleet_Ensign, test_CTOR, .init=redirect_all_stdout)
     Federation::Starfleet::Ensign   Ensign("Pavel Chekov");
     
     cr_assert_stdout_eq_str("Ensign Pavel Chekov, awaiting orders.\n");
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+Test(Destination, test_enum)
+{
+    // Test that the enumeration values are correct
+    cr_assert_eq(EARTH, 0);
+    cr_assert_eq(VULCAN, 1);
+    cr_assert_eq(UNICOMPLEX, 2);
+
+    // Test that we can assign values to the enumeration
+    Destination home;
+
+    home = EARTH;
+    cr_assert_eq(home, EARTH);
+
+    home = VULCAN;
+    cr_assert_eq(home, VULCAN);
+
+    home = UNICOMPLEX;
+    cr_assert_eq(home, UNICOMPLEX);
+}
+
+Test(Federation_Starfleet_Ship_Destination, test_CTOR_enum)
+{
+    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6);
+    cr_assert(UssKreog.getLocation() == EARTH);
+    cr_assert(UssKreog.getHome() == EARTH);
+    Federation::Ship                Independent(150, 230, "Greok");
+    cr_assert(Independent.getLocation() == VULCAN);
+    cr_assert(Independent.getHome() == VULCAN);
+
+    Borg::Ship                      Cube;
+    cr_assert(Cube.getLocation() == UNICOMPLEX);
+    cr_assert(Cube.getHome() == UNICOMPLEX);
+
 }
 // Test(SickKoala, ctorDefault) {
 
