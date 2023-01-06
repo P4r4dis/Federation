@@ -40,6 +40,10 @@ namespace       Federation
                 void                promote(Federation::Starfleet::Captain *captain);
                 Destination         getLocation(void);
                 Destination         getHome(void);
+                bool                move(int warp, Destination d); // set _location to d
+                bool                move(int warp); // set _location to _home
+                bool                move(Destination d); // set _location to d
+                bool                move(void); // set _location to _home
         };
         
         class   Captain
@@ -83,6 +87,11 @@ namespace       Federation
             void                checkCore(void);
             Destination         getLocation(void);
             Destination         getHome(void);
+            int                 getMaxWarp(void);
+            bool                move(int warp, Destination d); // set _location to d
+            bool                move(int warp); // set _location to _home
+            bool                move(Destination d); // set _location to d
+            bool                move(void); // set _location to _home
     };
 }
 

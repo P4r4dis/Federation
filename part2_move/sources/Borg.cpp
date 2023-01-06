@@ -40,3 +40,50 @@ Destination         Borg::Ship::getHome(void)
 {
     return _home;
 }
+
+bool                Borg::Ship::move(int warp, Destination d)
+{
+    if (warp <= _maxWarp && d != _location && _core->checkReactor()->getStability() == true)
+    {
+        _location = d;
+        return true;
+    }
+    else
+        return false;
+}
+
+bool                Borg::Ship::move(int warp)
+{
+    return move(warp, _home);
+    // if (warp <= getMaxWarp() && _home != _location && _core->checkReactor()->getStability() == true)
+    // {
+    //     _location = _home;
+    //     return true;
+    // }
+    // else
+    //     return false;
+}
+
+bool                Borg::Ship::move(Destination d)
+{
+    return move(_maxWarp, d);
+    // if (d != _location && _core->checkReactor()->getStability() == true)
+    // {
+    //     _location = d;
+    //     return true;
+    // }
+    // else
+    //     return false;
+}
+
+bool                Borg::Ship::move(void)
+{
+    return move(_maxWarp, _home);
+    // if (_core->checkReactor()->getStability() == true)
+    // {
+    //     _location = _home;
+    //     return true;
+    // }
+    // else
+    //     return false;
+}

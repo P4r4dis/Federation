@@ -43,8 +43,11 @@ int     main(void)
     Federation::Starfleet::Ensign Ensign("Pavel Chekov");
     WarpSystem::QuantumReactor QR;
     WarpSystem::QuantumReactor QR2;
+    WarpSystem::QuantumReactor QR3;
     WarpSystem::Core core(&QR);
     WarpSystem::Core core2(&QR2);
+    WarpSystem::Core core3(&QR3);
+
 
     UssKreog.setupCore(&core);
     UssKreog.checkCore();
@@ -68,5 +71,111 @@ int     main(void)
                 << Cube.getLocation() << std::endl;
     std::cout   << "Cube.getHome(UNICOMPLEX) = " 
                 << Cube.getHome() << std::endl;
+
+    Independent.setupCore(&core3);
+
+    std::cout   << "UssKreog location = " << UssKreog.getLocation()
+                << std::endl << "UssKreog home = " << UssKreog.getHome()
+                << std::endl;
+    if (UssKreog.move(4, VULCAN) == true)
+    {
+        std::cout   << "UssKreog location must be VULCAN = " 
+                    << UssKreog.getLocation()
+                    << std::endl << "UssKreog home = " << UssKreog.getHome()
+                    << std::endl;
+    }
+    if (UssKreog.move(5) == true)
+    {
+        std::cout   << "UssKreog location must be EARTH = " 
+                    << UssKreog.getLocation()
+                    << std::endl << "UssKreog home = " << UssKreog.getHome()
+                    << std::endl;
+    }
+    if (UssKreog.move(UNICOMPLEX) == true)
+    {
+        std::cout   << "UssKreog location must be UNICOMPLEX = " 
+                    << UssKreog.getLocation()
+                    << std::endl << "UssKreog home = " << UssKreog.getHome()
+                    << std::endl;
+    }
+    if (UssKreog.move() == true)
+    {
+        std::cout   << "UssKreog location must be EARTH = " 
+                    << UssKreog.getLocation()
+                    << std::endl << "UssKreog home = " << UssKreog.getHome()
+                    << std::endl;
+    }
+
+    /// Independent ///////////
+    ///   
+    /// 
+    std::cout   << "Greok location = " << Independent.getLocation()
+                << std::endl << "Greok home = " << Independent.getHome()
+                << std::endl;
+    if (Independent.move(1, EARTH) == true)
+    {
+        std::cout   << "Greok location must be EARTH = " 
+                    << Independent.getLocation()
+                    << std::endl << "Greok home = " << Independent.getHome()
+                    << std::endl;
+    }
+    if (Independent.move(1) == true)
+    {
+        std::cout   << "Greok location must be VULCAN = " 
+                    << Independent.getLocation()
+                    << std::endl << "Greok home = " << Independent.getHome()
+                    << std::endl;
+    }
+    if (Independent.move(UNICOMPLEX) == true)
+    {
+        std::cout   << "Greok location must be UNICOMPLEX = " 
+                    << Independent.getLocation()
+                    << std::endl << "Greok home = " << Independent.getHome()
+                    << std::endl;
+    }
+    if (Independent.move() == true)
+    {
+        std::cout   << "Greok location must be VULCAN = " 
+                    << Independent.getLocation()
+                    << std::endl << "Greok home = " << Independent.getHome()
+                    << std::endl;
+    }
+
+    /////////////////////////////////////////////////
+    //Cube
+    ////////////
+
+    std::cout   << "Borgs location = " << Cube.getLocation()
+                << std::endl << "Borgs home = " << Cube.getHome()
+                << std::endl;
+    if (Cube.move(1, EARTH) == true)
+    {
+        std::cout   << "Borgs location must be EARTH = " 
+                    << Cube.getLocation()
+                    << std::endl << "Borgs home = " << Cube.getHome()
+                    << std::endl;
+    }
+    if (Cube.move(5) == true)
+    {
+        std::cout   << "Borgs location must be UNICOMPLEX = " 
+                    << Cube.getLocation()
+                    << std::endl << "Borgs home = " << Cube.getHome()
+                    << std::endl;
+    }
+    if (Cube.move(VULCAN) == true)
+    {
+        std::cout   << "Borgs location must be VULCAN = " 
+                    << Cube.getLocation()
+                    << std::endl << "Borgs home = " << Cube.getHome()
+                    << std::endl;
+    }
+    if (Cube.move() == true)
+    {
+        std::cout   << "Borgs location must be UNICOMPLEX = " 
+                    << Cube.getLocation()
+                    << std::endl << "Borgs home = " << Cube.getHome()
+                    << std::endl;
+    }
+    
     return 0;
 }
