@@ -179,11 +179,19 @@ int     main(void)
     ////////////////////////////////////////////////////////////
     //WAR
 
-    Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6);
+    Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6, 0);
     std::cout << "getShield = " << UssKreog.getShield() << std::endl;
     UssKreog.setShield(50);
     std::cout << "getShield after setShield = " << UssKreog.getShield() << std::endl;
-
+    std::cout << "getTorpedo = " << UssKreog.getTorpedo() << std::endl;
+    UssKreog.setTorpedo(50);
+    std::cout << "getShield after setShield = " << UssKreog.getTorpedo() << std::endl;
     
+    Federation::Starfleet::Ship UssKreog2(289, 132, "Kreog", 6, 20);
+    std::cout << "getTorpedo = " << UssKreog2.getTorpedo() << std::endl;
+
+    Federation::Starfleet::Ship UssKreog3;
+    std::cout << "getTorpedo = " << UssKreog3.getTorpedo() << std::endl;
+
     return 0;
 }

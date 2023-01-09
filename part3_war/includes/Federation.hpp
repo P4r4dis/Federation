@@ -29,13 +29,14 @@ namespace       Federation
                 Destination         _home{EARTH};
                 Destination         _location;
                 int                 _shield;
-
-
+                int                 _torpedo;
             public:
                 Ship(int            length,
                     int             width,
                     std::string     name,
-                    short           maxWarp);
+                    short           maxWarp,
+                    int             torpedo);
+                Ship();
                 ~Ship();
                 void                setupCore(WarpSystem::Core *core);
                 void                checkCore(void);
@@ -48,6 +49,8 @@ namespace       Federation
                 bool                move(void); // set _location to _home
                 int                 getShield(void);
                 void                setShield(int shield);
+                int                 getTorpedo(void);
+                void                setTorpedo(int torpedo);
         };
         
         class   Captain

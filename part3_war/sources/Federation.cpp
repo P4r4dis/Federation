@@ -1,10 +1,23 @@
 #include "../includes/Federation.hpp"
 
 Federation::Starfleet::Ship::Ship(int length, int width, std::string name,
-                                short maxWarp) :
+                                short maxWarp, int torpedo = 0) :
                                 _length(length), _width(width), _name(name),
                                 _maxWarp(maxWarp), _location(_home),
-                                _shield(100)
+                                _shield(100), _torpedo(torpedo)
+{
+    std::cout << "The ship USS " << _name << " has been finished." << std::endl;
+    std::cout << "It is " << _length << " m in length and "
+    << _width << " m in width." << std::endl;
+    std::cout << "It can go to Warp " << _maxWarp << "!" << std::endl;
+    if (torpedo > 0)
+        std::cout << "Weapons are set: " << _torpedo << " torpedoes ready." << std::endl;
+}
+
+Federation::Starfleet::Ship::Ship() :   _length(289), _width(132), 
+                                        _name("Entreprise"), _maxWarp(6), 
+                                        _location(_home), _shield(100),
+                                        _torpedo(0)
 {
     std::cout << "The ship USS " << _name << " has been finished." << std::endl;
     std::cout << "It is " << _length << " m in length and "
@@ -103,6 +116,16 @@ int             Federation::Starfleet::Ship::getShield(void)
 void            Federation::Starfleet::Ship::setShield(int shield)
 {
     _shield = shield;
+}
+
+int             Federation::Starfleet::Ship::getTorpedo(void)
+{
+    return _torpedo;
+}
+
+void            Federation::Starfleet::Ship::setTorpedo(int torpedo)
+{
+    _torpedo = torpedo;
 }
 ///////////////////////////////////////////////////////////////////////
 Federation::Ship::Ship(int length, int width, std::string name) :
