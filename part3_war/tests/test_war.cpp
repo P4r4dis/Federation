@@ -5,7 +5,7 @@
 
 Test(Federation_Starfleet_Ship, test_constructor, .init=redirect_all_stdout)
 {
-    Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6);
+    Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6, 0);
     
     cr_assert_stdout_eq_str("The ship USS Kreog has been finished.\n\
 It is 289 m in length and 132 m in width.\n\
@@ -53,7 +53,7 @@ Test(WarpSystem_Core, test_constructor)
 
 Test(Federation_Starfleet_Ship, test_setupCore, .init=redirect_all_stdout)
 {
-    Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6);
+    Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6, 0);
     WarpSystem::QuantumReactor  QR;
     WarpSystem::Core            core(&QR);
 
@@ -66,7 +66,7 @@ USS Kreog: The core is set.\n");
 
 Test(Federation_Starfleet_Ship, test_checkCore,.init=redirect_all_stdout)
 {
-    Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6);
+    Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6, 0);
     WarpSystem::QuantumReactor  QR;
     WarpSystem::Core            core(&QR);
 
@@ -184,7 +184,7 @@ Test(Federation_Starfleet_Captain, test_getAge_and_setAge)
 
 Test(Federation_Starfleet_Ship, test_promote, .init=redirect_all_stdout)
 {
-    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6);
+    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6, 0);
     Federation::Starfleet::Captain  James("James T. Kirk");
 
     UssKreog.promote(&James);
@@ -225,7 +225,7 @@ Test(Destination, test_enum)
 
 Test(Destination, test_CTOR_enum)
 {
-    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6);
+    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6, 0);
     cr_assert(UssKreog.getLocation() == EARTH);
     cr_assert(UssKreog.getHome() == EARTH);
     Federation::Ship                Independent(150, 230, "Greok");
@@ -240,7 +240,7 @@ Test(Destination, test_CTOR_enum)
 
 Test(Destination, test_move)
 {
-    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6);
+    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6, 0);
     WarpSystem::QuantumReactor      QR;
     WarpSystem::Core                core(&QR);
 
@@ -299,12 +299,42 @@ Test(Destination, test_move)
 
 Test(War, test_shield)
 {
-    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6);
+    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6, 0);
     cr_assert(UssKreog.getShield() == 100);
     UssKreog.setShield(50);
     cr_assert(UssKreog.getShield() == 50);
     // Federation::Ship                Independent(150, 230, "Greok");
     // Borg::Ship                      Cube;
+}
+
+Test(War, test_torpedo_zero, .init=redirect_all_stdout)
+{
+    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6, 0);
+    cr_assert(UssKreog.getTorpedo() == 0);
+    UssKreog.setTorpedo(50);
+    cr_assert(UssKreog.getTorpedo() == 50);
+    cr_assert_stdout_eq_str("The ship USS Kreog has been finished.\n\
+It is 289 m in length and 132 m in width.\n\
+It can go to Warp 6!\n");
+}
+
+Test(War, test_torpedo_zero2, .init=redirect_all_stdout)
+{
+    Federation::Starfleet::Ship     UssKreog;
+
+    cr_assert_stdout_eq_str("The ship USS Entreprise has been finished.\n\
+It is 289 m in length and 132 m in width.\n\
+It can go to Warp 6!\n");
+}
+
+Test(War, test_torpedo, .init=redirect_all_stdout)
+{
+    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6, 50);
+
+    cr_assert_stdout_eq_str("The ship USS Kreog has been finished.\n\
+It is 289 m in length and 132 m in width.\n\
+It can go to Warp 6!\n\
+Weapons are set: 50 torpedoes ready.\n");
 }
 
 // Test(SickKoala, ctorDefault) {
