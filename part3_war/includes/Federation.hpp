@@ -54,6 +54,7 @@ namespace       Federation
                 void                setTorpedo(int torpedo);
                 void                fire(int torpedeos, Borg::Ship *target);
                 void                fire(Borg::Ship *target);
+                WarpSystem::Core    *getCore(void);
         };
         
         class   Captain
@@ -102,6 +103,7 @@ namespace       Federation
             bool                move(int warp); // set _location to _home
             bool                move(Destination d); // set _location to d
             bool                move(void); // set _location to _home
+            WarpSystem::Core    *getCore(void);
     };
 }
 

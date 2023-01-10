@@ -157,6 +157,11 @@ void            Federation::Starfleet::Ship::fire(Borg::Ship *target)
 {
     return fire(1, target);
 }
+
+WarpSystem::Core    *Federation::Starfleet::Ship::getCore(void)
+{
+    return _core;
+}
 ///////////////////////////////////////////////////////////////////////
 Federation::Ship::Ship(int length, int width, std::string name) :
                                 _length(length), _width(width), _name(name),
@@ -244,6 +249,11 @@ bool            Federation::Ship::move(void)
     // }
     // else
     //     return false;
+}
+
+WarpSystem::Core    *Federation::Ship::getCore(void)
+{
+    return _core;
 }
 ////////////////////////////////////////////////////////////////
 //CAPTAIN
