@@ -400,6 +400,16 @@ Test(Federation_Ship, test_getCore)
     cr_assert(Independent.getCore() == &core2);
 }
 
+Test(Borg_Ship, test_weaponFrequency)
+{
+    Borg::Ship                      Cube;
+    cr_assert(Cube.getWeaponFrequency() == 20);
+    Cube.setWeaponFrequency(100);
+    cr_assert(Cube.getWeaponFrequency() == 100);
+
+    Borg::Ship                      Cube2(50);
+    cr_assert(Cube2.getWeaponFrequency() == 50);
+}
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;

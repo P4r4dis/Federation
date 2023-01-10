@@ -281,7 +281,9 @@ WarpSystem::Core    *Federation::Ship::getCore(void)
 }
 
 ///////////////////////////////////////////////////////////
-Borg::Ship::Ship() : _side(300), _maxWarp(9), _location(_home), _shield(100)
+Borg::Ship::Ship(int weaponFrequency) :     _side(300), _maxWarp(9),
+                                            _location(_home), _shield(100),
+                                            _weaponFrequency(weaponFrequency)
 {
     std::cout << "We are the Borgs." << 
     " Lower your shields and surrender yourselves unconditionally."
@@ -376,6 +378,16 @@ int                 Borg::Ship::getShield(void)
 void                Borg::Ship::setShield(int shield)
 {
     _shield = shield;
+}
+
+int                 Borg::Ship::getWeaponFrequency(void)
+{
+    return _weaponFrequency;
+}
+
+void                Borg::Ship::setWeaponFrequency(int weaponFrenquency)
+{
+    _weaponFrequency = weaponFrenquency;
 }
 ////////////////////////////////////////////////////////////////
 //CAPTAIN

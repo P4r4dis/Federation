@@ -168,10 +168,11 @@ namespace                       Borg
             WarpSystem::Core    *_core;
             Destination         _home{UNICOMPLEX};
             Destination         _location;
-            int                 _shield;          
+            int                 _shield;
+            int                 _weaponFrequency;
             
         public:
-            Ship();
+            Ship(int weaponFrequency = 20);
             ~Ship();
 
             void                setupCore(WarpSystem::Core *core);
@@ -186,6 +187,8 @@ namespace                       Borg
             bool                move(void); // set _location to _home
             int                 getShield(void);
             void                setShield(int shield);
+            int                 getWeaponFrequency(void);
+            void                setWeaponFrequency(int weaponFrequency);
     };
 }
 
