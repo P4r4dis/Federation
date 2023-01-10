@@ -384,6 +384,22 @@ Resistance is futile.\n\
 Kreog: Firing on target. 0 torpedoes remaining.\n\
 Kreog: No enough torpedoes to fire, James T. Kirk!\n");
 }
+
+Test(Federation_Ship, test_getCore)
+{
+    Federation::Ship Independent(200, 100, "Entreprise");
+
+    WarpSystem::QuantumReactor  QR2;
+    cr_assert(QR2.getStability() == true);
+    cr_assert(QR2.isStable() == true);
+
+    WarpSystem::Core            core2(&QR2);
+    cr_assert(core2.checkReactor() == &QR2);
+
+    Independent.setupCore(&core2);
+    cr_assert(Independent.getCore() == &core2);
+}
+
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;

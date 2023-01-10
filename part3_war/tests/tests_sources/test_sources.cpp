@@ -274,6 +274,12 @@ bool            Federation::Ship::move(void)
     // else
     //     return false;
 }
+
+WarpSystem::Core    *Federation::Ship::getCore(void)
+{
+    return _core;
+}
+
 ///////////////////////////////////////////////////////////
 Borg::Ship::Ship() : _side(300), _maxWarp(9), _location(_home), _shield(100)
 {

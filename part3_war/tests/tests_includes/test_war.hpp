@@ -111,6 +111,7 @@ namespace Federation
                 WarpSystem::Core    *_core;
                 Destination         _home{VULCAN};
                 Destination         _location;
+                // Federation::Ship    *_core;
             public:
                 Ship(int            length,
                     int             width,
@@ -125,6 +126,7 @@ namespace Federation
                 bool                move(int warp); // set _location to _home
                 bool                move(Destination d); // set _location to d
                 bool                move(void); // set _location to _home
+                WarpSystem::Core    *getCore(void);
         };
 }
 
