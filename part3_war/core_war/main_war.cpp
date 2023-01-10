@@ -200,5 +200,10 @@ int     main(void)
     UssKreog2.fire(&Cube);
     std::cout << "getShield after attack = " << Cube.getShield() << std::endl;
 
+    std::cout << "getWeaponFrequency = " << Cube.getWeaponFrequency() << std::endl;
+    Cube.setWeaponFrequency(50);
+    std::cout << "After Set getWeaponFrequency = " << Cube.getWeaponFrequency() << std::endl;
+    Cube.setWeaponFrequency(20);
+
     return 0;
 }
