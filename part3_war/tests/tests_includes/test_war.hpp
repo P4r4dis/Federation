@@ -50,6 +50,7 @@ namespace Federation
                 Destination         _location;
                 int                 _shield;
                 int                 _torpedo;
+                Federation::Starfleet::Captain             *_captain;
 
             public:
                 Ship(int            length,
@@ -72,6 +73,8 @@ namespace Federation
                 void                setShield(int shield);
                 int                 getTorpedo(void);
                 void                setTorpedo(int torpedo);
+                void                fire(Borg::Ship *target);
+                void                fire(int torpedoes, Borg::Ship *target);
         };
 
         class Captain
@@ -163,6 +166,7 @@ namespace                       Borg
             WarpSystem::Core    *_core;
             Destination         _home{UNICOMPLEX};
             Destination         _location;
+            int                 _shield;          
             
         public:
             Ship();
@@ -178,6 +182,8 @@ namespace                       Borg
             bool                move(int warp); // set _location to _home
             bool                move(Destination d); // set _location to d
             bool                move(void); // set _location to _home
+            int                 getShield(void);
+            void                setShield(int shield);
     };
 }
 

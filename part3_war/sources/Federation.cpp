@@ -46,6 +46,7 @@ void            Federation::Starfleet::Ship::checkCore()
 
 void            Federation::Starfleet::Ship::promote(Federation::Starfleet::Captain    *captain)
 {
+    _captain = captain;
     std::cout   << captain->getName() 
                 << ": I’m glad to be the captain of the USS "
                 << this->_name << "." << std::endl;
@@ -126,6 +127,31 @@ int             Federation::Starfleet::Ship::getTorpedo(void)
 void            Federation::Starfleet::Ship::setTorpedo(int torpedo)
 {
     _torpedo = torpedo;
+}
+
+void            Federation::Starfleet::Ship::fire(int torpedeos, Borg::Ship *target)
+{
+    if (torpedeos <= _torpedo) 
+    {
+        _torpedo = _torpedo - torpedeos;
+        std::cout   << _name << ": Firing on target. " << _torpedo 
+                    << " torpedoes remaining." << std::endl;
+        target->getHome();   
+        // target->setShield(target->getShield() - (50 * torpedeos));
+        // if(target->getShield() < 0)
+        //     target->setShield(0);
+    }
+    else if (_torpedo)
+    {
+        std::cout   << _name << ": No more torpedo to fire, "
+                    << _captain->getName() << "!" << std::endl;
+    }
+    else
+    {
+        std::cout   << _name << ": No enough torpedoes to fire, "
+                    << _captain->getName() << "!" << std::endl;
+    }
+
 }
 ///////////////////////////////////////////////////////////////////////
 Federation::Ship::Ship(int length, int width, std::string name) :

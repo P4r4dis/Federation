@@ -4,7 +4,7 @@
 #include <iostream>
 #include "WarpSystem.hpp"
 #include "Destination.hpp"
-
+#include "Borg.hpp"
 namespace       Federation {
 	namespace   Starfleet {
 		class   Ship;
@@ -30,6 +30,7 @@ namespace       Federation
                 Destination         _location;
                 int                 _shield;
                 int                 _torpedo;
+                Captain             *_captain;
             public:
                 Ship(int            length,
                     int             width,
@@ -51,6 +52,7 @@ namespace       Federation
                 void                setShield(int shield);
                 int                 getTorpedo(void);
                 void                setTorpedo(int torpedo);
+            void                fire(int torpedeos, Borg::Ship *target);
         };
         
         class   Captain

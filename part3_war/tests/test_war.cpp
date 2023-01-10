@@ -201,7 +201,7 @@ Test(Federation_Starfleet_Ensign, test_CTOR, .init=redirect_all_stdout)
     cr_assert_stdout_eq_str("Ensign Pavel Chekov, awaiting orders.\n");
 }
 
-//////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 
 Test(Destination, test_enum)
 {
@@ -337,6 +337,53 @@ It can go to Warp 6!\n\
 Weapons are set: 50 torpedoes ready.\n");
 }
 
+Test(War, test_fire, .init=redirect_all_stdout)
+{
+    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6, 50);
+    Federation::Starfleet::Captain  James("James T. Kirk");
+    UssKreog.promote(&James);
+    Borg::Ship Cube;
+
+    UssKreog.fire(70, &Cube);
+    UssKreog.fire(50, &Cube);
+    cr_assert(Cube.getShield() == 0);
+    UssKreog.fire(1, &Cube);
+
+    cr_assert_stdout_eq_str("The ship USS Kreog has been finished.\n\
+It is 289 m in length and 132 m in width.\n\
+It can go to Warp 6!\n\
+Weapons are set: 50 torpedoes ready.\n\
+James T. Kirk: I’m glad to be the captain of the USS Kreog.\n\
+We are the Borgs. Lower your shields and surrender yourselves unconditionally.\n\
+Your biological characteristics and technologies will be assimilated.\n\
+Resistance is futile.\n\
+Kreog: No more torpedo to fire, James T. Kirk!\n\
+Kreog: Firing on target. 0 torpedoes remaining.\n\
+Kreog: No enough torpedoes to fire, James T. Kirk!\n");
+}
+
+Test(War, test_fire2, .init=redirect_all_stdout)
+{
+    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6, 1);
+    Federation::Starfleet::Captain  James("James T. Kirk");
+    UssKreog.promote(&James);
+    Borg::Ship Cube;
+
+    UssKreog.fire(&Cube);
+    cr_assert(Cube.getShield() == 50);
+    UssKreog.fire(&Cube);
+
+    cr_assert_stdout_eq_str("The ship USS Kreog has been finished.\n\
+It is 289 m in length and 132 m in width.\n\
+It can go to Warp 6!\n\
+Weapons are set: 1 torpedoes ready.\n\
+James T. Kirk: I’m glad to be the captain of the USS Kreog.\n\
+We are the Borgs. Lower your shields and surrender yourselves unconditionally.\n\
+Your biological characteristics and technologies will be assimilated.\n\
+Resistance is futile.\n\
+Kreog: Firing on target. 0 torpedoes remaining.\n\
+Kreog: No enough torpedoes to fire, James T. Kirk!\n");
+}
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;

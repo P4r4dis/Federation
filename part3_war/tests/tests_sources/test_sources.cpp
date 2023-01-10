@@ -124,6 +124,35 @@ void            Federation::Starfleet::Ship::setTorpedo(int torpedo)
 {
     _torpedo = torpedo;
 }
+
+void            Federation::Starfleet::Ship::fire(int torpedeos, Borg::Ship *target)
+{
+    if (torpedeos <= _torpedo) 
+    {
+        _torpedo = _torpedo - torpedeos;
+        std::cout   << _name << ": Firing on target. " << _torpedo 
+                    << " torpedoes remaining." << std::endl;
+        target->setShield(target->getShield() - (50 * torpedeos));
+        if(target->getShield() < 0)
+            target->setShield(0);
+    }
+    else if (_torpedo)
+    {
+        std::cout   << _name << ": No more torpedo to fire, "
+                    << _captain->getName() << "!" << std::endl;
+    }
+    else
+    {
+        std::cout   << _name << ": No enough torpedoes to fire, "
+                    << _captain->getName() << "!" << std::endl;
+    }
+
+}
+
+void            Federation::Starfleet::Ship::fire(Borg::Ship *target)
+{
+    return fire(1, target);
+}
 ///////////////////////////////////////////////////////
 WarpSystem::QuantumReactor::QuantumReactor() : _stability(true)
 {}
@@ -246,7 +275,7 @@ bool            Federation::Ship::move(void)
     //     return false;
 }
 ///////////////////////////////////////////////////////////
-Borg::Ship::Ship() : _side(300), _maxWarp(9), _location(_home)
+Borg::Ship::Ship() : _side(300), _maxWarp(9), _location(_home), _shield(100)
 {
     std::cout << "We are the Borgs." << 
     " Lower your shields and surrender yourselves unconditionally."
@@ -333,6 +362,16 @@ bool                Borg::Ship::move(void)
     // else
     //     return false;
 }
+
+int                 Borg::Ship::getShield(void)
+{
+    return _shield;
+}
+
+void                Borg::Ship::setShield(int shield)
+{
+    _shield = shield;
+}
 ////////////////////////////////////////////////////////////////
 //CAPTAIN
 ///////////////////////////////////////////////////////////////
@@ -359,6 +398,7 @@ void        Federation::Starfleet::Captain::setAge(int  age)
 
 void        Federation::Starfleet::Ship::promote(Captain    *captain)
 {
+    _captain = captain;
     std::cout   << captain->getName() 
                 << ": I’m glad to be the captain of the USS "
                 << this->_name << "." << std::endl;

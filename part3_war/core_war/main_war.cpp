@@ -36,7 +36,7 @@ int     main(void)
     // Independent.checkCore();
 
     // Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6);
-    // Federation::Starfleet::Captain James("James T.Kirk");
+    Federation::Starfleet::Captain James("James T.Kirk");
     // std::cout << "Captain::getName = " << James.getName() << std::endl;
     // James.setAge(5);
     // std::cout << "Captain::setAge and getAge = " << James.getAge() << std::endl;
@@ -53,7 +53,7 @@ int     main(void)
     // UssKreog.checkCore();
     // UssKreog.promote(&James);
 
-    // Borg::Ship Cube;
+    Borg::Ship Cube;
     // Cube.setupCore(&core2);
     // Cube.checkCore();
 
@@ -192,6 +192,8 @@ int     main(void)
 
     Federation::Starfleet::Ship UssKreog3;
     std::cout << "getTorpedo = " << UssKreog3.getTorpedo() << std::endl;
+    UssKreog2.promote(&James);
+    UssKreog2.fire(45, &Cube);
 
     return 0;
 }
