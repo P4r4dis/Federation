@@ -52,7 +52,8 @@ namespace       Federation
                 void                setShield(int shield);
                 int                 getTorpedo(void);
                 void                setTorpedo(int torpedo);
-            void                fire(int torpedeos, Borg::Ship *target);
+                void                fire(int torpedeos, Borg::Ship *target);
+                void                fire(Borg::Ship *target);
         };
         
         class   Captain

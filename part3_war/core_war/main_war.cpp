@@ -193,7 +193,13 @@ int     main(void)
     Federation::Starfleet::Ship UssKreog3;
     std::cout << "getTorpedo = " << UssKreog3.getTorpedo() << std::endl;
     UssKreog2.promote(&James);
+    // Cube.setShield(100);
+
     UssKreog2.fire(45, &Cube);
+    std::cout << "getShield before attack = " << Cube.getShield() << std::endl;
+    UssKreog2.fire(20, &Cube);
+    UssKreog2.fire(&Cube);
+    std::cout << "getShield after attack = " << Cube.getShield() << std::endl;
 
     return 0;
 }

@@ -87,3 +87,13 @@ bool                Borg::Ship::move(void)
     // else
     //     return false;
 }
+
+int                 Borg::Ship::getShield(void)
+{
+    return _shield;
+}
+
+void                Borg::Ship::setShield(int shield)
+{
+    _shield = shield;
+}

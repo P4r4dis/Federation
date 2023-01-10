@@ -136,10 +136,9 @@ void            Federation::Starfleet::Ship::fire(int torpedeos, Borg::Ship *tar
         _torpedo = _torpedo - torpedeos;
         std::cout   << _name << ": Firing on target. " << _torpedo 
                     << " torpedoes remaining." << std::endl;
-        target->getHome();   
-        // target->setShield(target->getShield() - (50 * torpedeos));
-        // if(target->getShield() < 0)
-        //     target->setShield(0);
+        target->setShield(target->getShield() - (50 * torpedeos));
+        if(target->getShield() < 0)
+            target->setShield(0);
     }
     else if (_torpedo)
     {
@@ -152,6 +151,11 @@ void            Federation::Starfleet::Ship::fire(int torpedeos, Borg::Ship *tar
                     << _captain->getName() << "!" << std::endl;
     }
 
+}
+
+void            Federation::Starfleet::Ship::fire(Borg::Ship *target)
+{
+    return fire(1, target);
 }
 ///////////////////////////////////////////////////////////////////////
 Federation::Ship::Ship(int length, int width, std::string name) :
