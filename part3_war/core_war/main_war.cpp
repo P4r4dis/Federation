@@ -196,7 +196,7 @@ int     main(void)
 
     UssKreog2.fire(45, &Cube);
     std::cout << "getShield before attack = " << Cube.getShield() << std::endl;
-    UssKreog2.fire(20, &Cube);
+    UssKreog2.fire(1, &Cube);
     UssKreog2.fire(&Cube);
     std::cout << "getShield after attack = " << Cube.getShield() << std::endl;
 
@@ -205,5 +205,11 @@ int     main(void)
     std::cout << "After Set getWeaponFrequency = " << Cube.getWeaponFrequency() << std::endl;
     Cube.setWeaponFrequency(20);
 
+    Cube.repair();
+    std::cout << "Borg shield repaired if = 100 -> " << Cube.getShield() << std::endl;
+    Cube.repair();
+    Cube.repair();
+    Cube.repair();
+    std::cout << "getRepair -> " << Cube.getRepair() << std::endl;
     return 0;
 }
