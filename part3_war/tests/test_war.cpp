@@ -410,6 +410,35 @@ Test(Borg_Ship, test_weaponFrequency)
     Borg::Ship                      Cube2(50);
     cr_assert(Cube2.getWeaponFrequency() == 50);
 }
+
+Test(Borg_Ship, test_repair, .init=redirect_all_stdout)
+{
+    Borg::Ship                      Cube;
+
+    cr_assert(Cube.getShield() == 100);
+    Cube.setShield(50);
+    cr_assert(Cube.getShield() == 50);
+
+    cr_assert(Cube.getWeaponFrequency() == 20);
+    Cube.setWeaponFrequency(100);
+    cr_assert(Cube.getWeaponFrequency() == 100);
+
+    cr_assert(Cube.getRepair() == 3);
+    Cube.setRepair(1);
+    cr_assert(Cube.getRepair() == 1);
+    Cube.repair();
+    cr_assert(Cube.getShield() == 100);
+    Cube.setShield(50);
+    cr_assert(Cube.getRepair() == 0);
+    Cube.repair();
+    cr_assert(Cube.getShield() == 50);
+    cr_assert_stdout_eq_str("We are the Borgs. Lower your shields and surrender yourselves unconditionally.\n\
+Your biological characteristics and technologies will be assimilated.\n\
+Resistance is futile.\n\
+Begin shield re-initialisation... Done. Awaiting further instructions.\n\
+Energy cells depleted, shield weakening.\n");
+}
+
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;

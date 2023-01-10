@@ -170,9 +170,10 @@ namespace                       Borg
             Destination         _location;
             int                 _shield;
             int                 _weaponFrequency;
+            short               _repair;
             
         public:
-            Ship(int weaponFrequency = 20);
+            Ship(int weaponFrequency = 20, short repair = 3);
             ~Ship();
 
             void                setupCore(WarpSystem::Core *core);
@@ -189,6 +190,9 @@ namespace                       Borg
             void                setShield(int shield);
             int                 getWeaponFrequency(void);
             void                setWeaponFrequency(int weaponFrequency);
+            short               getRepair(void);
+            void                setRepair(short repair);
+            void                repair(void);
     };
 }
 

@@ -281,9 +281,11 @@ WarpSystem::Core    *Federation::Ship::getCore(void)
 }
 
 ///////////////////////////////////////////////////////////
-Borg::Ship::Ship(int weaponFrequency) :     _side(300), _maxWarp(9),
-                                            _location(_home), _shield(100),
-                                            _weaponFrequency(weaponFrequency)
+Borg::Ship::Ship(int weaponFrequency, short repair) :   _side(300), _maxWarp(9),
+                                                        _location(_home),
+                                                        _shield(100),
+                                                        _weaponFrequency(weaponFrequency),
+                                                        _repair(repair)
 {
     std::cout << "We are the Borgs." << 
     " Lower your shields and surrender yourselves unconditionally."
@@ -388,6 +390,29 @@ int                 Borg::Ship::getWeaponFrequency(void)
 void                Borg::Ship::setWeaponFrequency(int weaponFrenquency)
 {
     _weaponFrequency = weaponFrenquency;
+}
+
+short               Borg::Ship::getRepair(void)
+{
+    return _repair;
+}
+
+void                Borg::Ship::setRepair(short repair)
+{
+    _repair = repair;
+}
+
+void                Borg::Ship::repair(void)
+{
+    if(_repair > 0)
+    {
+        _repair--;
+        _shield = 100;
+        std::cout   << "Begin shield re-initialisation... "
+                    << "Done. Awaiting further instructions." << std::endl;
+    }
+    else
+        std::cout   << "Energy cells depleted, shield weakening." << std::endl;
 }
 ////////////////////////////////////////////////////////////////
 //CAPTAIN
