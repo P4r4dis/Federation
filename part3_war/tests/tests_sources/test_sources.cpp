@@ -334,7 +334,6 @@ bool                Borg::Ship::move(int warp, Destination d)
 
 bool                Borg::Ship::move(int warp)
 {
-    std::cout << "TEST" << std::endl;
     return move(warp, _home);
     // if (warp <= getMaxWarp() && _home != _location && _core->checkReactor()->getStability() == true)
     // {
