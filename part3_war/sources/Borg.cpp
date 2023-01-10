@@ -1,7 +1,7 @@
 #include "../includes/Borg.hpp"
 #include <iostream>
 
-Borg::Ship::Ship() : _side(300), _maxWarp(9), _location(_home)
+Borg::Ship::Ship() : _side(300), _maxWarp(9), _location(_home), _shield(100)
 {
     std::cout << "We are the Borgs." << 
     " Lower your shields and surrender yourselves unconditionally."
