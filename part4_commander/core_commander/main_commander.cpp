@@ -229,6 +229,7 @@ int     main(void)
     std::cout   << "Admiral name : " << admiral.getName() << std::endl;
 
     Federation::Starfleet::Ship         UssKreog(289, 132, "Kreog", 6, 50);
+    Federation::Ship                    Independent(150, 230, "Greok");
     WarpSystem::QuantumReactor          QR;
     WarpSystem::Core                    core(&QR);
     WarpSystem::QuantumReactor          QR2;
@@ -252,5 +253,14 @@ int     main(void)
     std::cout << "UssKreog shield before attack = " << UssKreog.getShield() << std::endl;
     borgQueen.fire(&Cube, &UssKreog);
     std::cout << "UssKreog shield After attack = " << UssKreog.getShield() << std::endl;
+
+    Independent.setupCore(&core);
+    std::cout   << std::boolalpha << "Entreprise reactor status = " 
+                << Independent.getCore()->checkReactor()->isStable() << std::endl;
+    borgQueen.destroy(&Cube, &Independent);
+    std::cout   << std::boolalpha << "Entreprise reactor After attack status = " 
+                << Independent.getCore()->checkReactor()->isStable() << std::endl;
+
+
     return 0;
 }

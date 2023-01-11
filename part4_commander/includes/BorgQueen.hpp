@@ -22,6 +22,9 @@ namespace   Borg
 
             void                (Borg::Ship::*firePtr) (Federation::Starfleet::Ship *ship);
             void                fire(Borg::Ship *ship,  Federation::Starfleet::Ship *target);
+
+            void                (Borg::Ship::*destroyPtr) (Federation::Ship *ship);
+            void                destroy(Borg::Ship *ship, Federation::Ship *target);
     };
 }
 #endif //       !__BORGQUEEN__
