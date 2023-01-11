@@ -479,7 +479,7 @@ Test(Federation_Starfleet_Admiral, test_move)
     UssKreog.setupCore(&core);
     cr_assert(admiral.move(&UssKreog, VULCAN) == true);
 }
-#include <iostream>
+
 Test(Federation_Starfleet_Admiral, test_fire, .init=redirect_all_stdout)
 {
     Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6, 50);
@@ -499,6 +499,17 @@ Resistance is futile.\n\
 Admiral Osu ready for action.\n\
 On order from Admiral Osu:\n\
 Kreog: Firing on target. 49 torpedoes remaining.\n");
+}
+
+Test(Borg_BorgQueen, test_move)
+{
+    Borg::BorgQueen                 borgQueen;
+    Borg::Ship                      Cube;
+    WarpSystem::QuantumReactor      QR;
+    WarpSystem::Core                core(&QR);
+    Cube.setupCore(&core);
+
+    cr_assert(borgQueen.move(&Cube, VULCAN) == true);
 }
 // Test(SickKoala, ctorDefault) {
 

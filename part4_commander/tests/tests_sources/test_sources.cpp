@@ -501,3 +501,15 @@ void            Federation::Starfleet::Admiral::fire(
     std::cout << "On order from Admiral " << _name << ":" << std::endl;
     (ship->*firePtr)(target);
 }
+
+/////////////////////////////////////////////////////////////////////////////
+Borg::BorgQueen::BorgQueen() :  movePtr(&Borg::Ship::move)
+{}
+
+Borg::BorgQueen::~BorgQueen()
+{}
+
+bool        Borg::BorgQueen::move(Borg::Ship *ship, Destination dest)
+{
+        return (ship->*movePtr)(dest);
+}

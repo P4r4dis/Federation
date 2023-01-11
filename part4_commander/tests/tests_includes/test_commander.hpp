@@ -226,4 +226,18 @@ namespace Federation
         };
     }
 }
+
+namespace   Borg
+{
+    class BorgQueen
+    {
+        private:
+        public:
+            BorgQueen(void);
+            ~BorgQueen(void);
+
+            bool                (Borg::Ship::*movePtr) (Destination destination);
+            bool                move(Borg::Ship *ship, Destination dest);
+    };
+}
 #endif  // !__TEST_COMMANDER__
