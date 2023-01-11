@@ -511,6 +511,19 @@ Test(Borg_BorgQueen, test_move)
 
     cr_assert(borgQueen.move(&Cube, VULCAN) == true);
 }
+
+Test(Borg_BorgQueen, test_fire)
+{
+    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6, 50);
+    Borg::BorgQueen                 borgQueen;
+    Borg::Ship                      Cube;
+    WarpSystem::QuantumReactor      QR;
+    WarpSystem::Core                core(&QR);
+    Cube.setupCore(&core);
+    cr_assert(UssKreog.getShield() == 100);
+    borgQueen.fire(&Cube, &UssKreog);
+    cr_assert(UssKreog.getShield() == 80);
+}
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;

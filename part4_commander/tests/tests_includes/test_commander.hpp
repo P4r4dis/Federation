@@ -10,7 +10,10 @@
 #include "test_destination.hpp"
 
 void                redirect_all_stdout(void);
-
+namespace Borg
+{
+    class BorgQueen;
+}
 namespace WarpSystem
 {
 	class QuantumReactor;
@@ -40,6 +43,7 @@ namespace   Federation
         class Admiral;
     }
 }
+
 
 namespace Federation
 {
@@ -238,6 +242,9 @@ namespace   Borg
 
             bool                (Borg::Ship::*movePtr) (Destination destination);
             bool                move(Borg::Ship *ship, Destination dest);
+
+            void                (Borg::Ship::*firePtr) (Federation::Starfleet::Ship *ship);
+            void                fire(Borg::Ship *ship,  Federation::Starfleet::Ship *target);
     };
 }
 #endif  // !__TEST_COMMANDER__
