@@ -218,6 +218,8 @@ namespace Federation
                 ~Admiral();
 
                 std::string     getName(void);
+                bool            (Federation::Starfleet::Ship::*movePtr) (Destination destination);
+                bool            move(Federation::Starfleet::Ship *ship, Destination dest);
         };
     }
 }

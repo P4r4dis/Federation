@@ -468,6 +468,18 @@ Test(Federation_Starfleet_Admiral, test_class, .init=redirect_all_stdout)
     cr_assert_stdout_eq_str("Admiral Osu ready for action.\n");
 
 }
+
+#include <iostream>
+Test(Federation_Starfleet_Admiral, test_move)
+{
+    Federation::Starfleet::Admiral  admiral("Osu");
+    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6, 50);
+    WarpSystem::QuantumReactor      QR;
+    WarpSystem::Core                core(&QR);
+
+    UssKreog.setupCore(&core);
+    cr_assert(admiral.move(&UssKreog, VULCAN) == true);
+}
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;
