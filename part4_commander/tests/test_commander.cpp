@@ -459,6 +459,15 @@ Test(Borg_Ship, test_fire)
     Cube.fire(&Independent);
     cr_assert(Independent.getCore()->checkReactor()->isStable() == false);
 }
+
+Test(Federation_Starfleet_Admiral, test_class, .init=redirect_all_stdout)
+{
+    Federation::Starfleet::Admiral admiral("Osu");
+
+    cr_assert(admiral.getName() == "Osu");
+    cr_assert_stdout_eq_str("Admiral Osu ready for action.\n");
+
+}
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;

@@ -33,6 +33,13 @@ namespace   Federation
     class Ship;
 }
 
+namespace   Federation
+{
+    namespace Starfleet
+    {
+        class Admiral;
+    }
+}
 
 namespace Federation
 {
@@ -198,4 +205,20 @@ namespace                       Borg
     };
 }
 
+namespace Federation
+{
+    namespace Starfleet
+    {
+        class Admiral
+        {
+            private:
+                std::string     _name;
+            public:
+                Admiral(std::string name);
+                ~Admiral();
+
+                std::string     getName(void);
+        };
+    }
+}
 #endif  // !__TEST_COMMANDER__
