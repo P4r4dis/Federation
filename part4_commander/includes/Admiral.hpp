@@ -30,8 +30,8 @@ namespace       Federation
                 bool            (Federation::Starfleet::Ship::*movePtr) (Destination destination);
                 bool            move(Federation::Starfleet::Ship *ship, Destination dest);
 
-                // void            (Borg::Ship::*firePtr) (Borg::Ship *ship);
-                // void            fire(Federation::Starfleet::Ship *ship, Borg::Ship *target);
+                void            (Federation::Starfleet::Ship::*firePtr) (Borg::Ship *ship);
+                void            fire(Federation::Starfleet::Ship *ship, Borg::Ship *target);
         };
     }
 }

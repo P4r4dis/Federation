@@ -234,5 +234,11 @@ int     main(void)
 
     if (admiral.move(&UssKreog, VULCAN) == true)
         std::cout << "Admiral move to vulcan" << std::endl;
+
+    Borg::Ship                          Cube;
+    std::cout << "Borg shield before attack = " << Cube.getShield() << std::endl;
+    admiral.fire(&UssKreog, &Cube);
+    std::cout << "Borg shield After attack = " << Cube.getShield() << std::endl;
+
     return 0;
 }
