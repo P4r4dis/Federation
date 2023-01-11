@@ -180,10 +180,6 @@ part4 					: 	fclean
 							@$(MAKE) -C $(PART4_PATH)
 							$(PART4_PATH)/$(NAME_COMMANDER)
 
-part5 					: 	fclean
-							@$(MAKE) -C $(PART5_PATH)
-							$(PART5_PATH)/$(NAME_EXAM)
-
 tests_run_part0			:	fclean
 							@$(MAKE) -C $(PART0_TST_PATH)
 							$(PART0_TST_PATH)/$(TEST_NAME_FEDERATION)
@@ -204,20 +200,15 @@ tests_run_part4			:	fclean
 							@$(MAKE) -C $(PART4_TST_PATH)
 							$(PART4_TST_PATH)/$(TEST_NAME_COMMANDER)
 
-tests_run_part5			:	fclean
-							@$(MAKE) -C $(PART5_TST_PATH)
-							$(PART5_TST_PATH)/$(TEST_NAME_EXAM)
-
 tests_run				:	fclean
 							@$(MAKE) tests_run_part0
 							@$(MAKE) tests_run_part1
 							@$(MAKE) tests_run_part2
 							@$(MAKE) tests_run_part3
 							@$(MAKE) tests_run_part4
-							@$(MAKE) tests_run_part5
 
 
-.PHONY					: 	all clean fclean re part0 tests_run_part0 part1 tests_run_part1 part2 tests_run_part2 part3 tests_run_part3 part4 tests_run_part4 part5 tests_run_part5 tests_run
+.PHONY					: 	all clean fclean re part0 tests_run_part0 part1 tests_run_part1 part2 tests_run_part2 part3 tests_run_part3 part4 tests_run_part4 tests_run
 #part2 tests_run_part2 part3 tests_run_part3 part4 tests_run_part4 tests_run
 
 # $(CC) -o $(TEST_NAME) $(SRC) $(SRC_TEST) $(TESTFLAGS) $(LIBFLAG)
