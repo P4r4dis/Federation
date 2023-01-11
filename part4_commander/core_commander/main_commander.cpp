@@ -226,5 +226,13 @@ int     main(void)
 ////////////////////////////////////////////
     Federation::Starfleet::Admiral      admiral("Osu");
     std::cout   << "Admiral name : " << admiral.getName() << std::endl;
+
+    Federation::Starfleet::Ship         UssKreog(289, 132, "Kreog", 6, 50);
+    WarpSystem::QuantumReactor          QR;
+    WarpSystem::Core                    core(&QR);
+    UssKreog.setupCore(&core);
+
+    if (admiral.move(&UssKreog, VULCAN) == true)
+        std::cout << "Admiral move to vulcan" << std::endl;
     return 0;
 }
