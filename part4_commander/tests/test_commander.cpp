@@ -524,6 +524,23 @@ Test(Borg_BorgQueen, test_fire)
     borgQueen.fire(&Cube, &UssKreog);
     cr_assert(UssKreog.getShield() == 80);
 }
+
+Test(Borg_BorgQueen, test_destroy)
+{
+    Federation::Ship                Independent(150, 230, "Greok");
+    Borg::BorgQueen                 borgQueen;
+    Borg::Ship                      Cube;
+    WarpSystem::QuantumReactor      QR;
+    WarpSystem::Core                core(&QR);
+
+    Independent.setupCore(&core);
+    Independent.checkCore();
+    Cube.setupCore(&core);
+
+    cr_assert(Independent.getCore()->checkReactor()->isStable() == true);
+    borgQueen.destroy(&Cube, &Independent);
+    cr_assert(Independent.getCore()->checkReactor()->isStable() == false);
+}
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;
