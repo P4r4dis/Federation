@@ -19,6 +19,9 @@ namespace   Borg
 
             bool                (Borg::Ship::*movePtr) (Destination destination);
             bool                move(Borg::Ship *ship, Destination dest);
+
+            void                (Borg::Ship::*firePtr) (Federation::Starfleet::Ship *ship);
+            void                fire(Borg::Ship *ship,  Federation::Starfleet::Ship *target);
     };
 }
 #endif //       !__BORGQUEEN__

@@ -231,6 +231,8 @@ int     main(void)
     Federation::Starfleet::Ship         UssKreog(289, 132, "Kreog", 6, 50);
     WarpSystem::QuantumReactor          QR;
     WarpSystem::Core                    core(&QR);
+    WarpSystem::QuantumReactor          QR2;
+    WarpSystem::Core                    core2(&QR2);
     UssKreog.setupCore(&core);
 
     if (admiral.move(&UssKreog, VULCAN) == true)
@@ -242,9 +244,13 @@ int     main(void)
     std::cout << "Borg shield After attack = " << Cube.getShield() << std::endl;
 
     Borg::BorgQueen                     borgQueen;
-    Cube.setupCore(&core);
+    Cube.setupCore(&core2);
 
     if (borgQueen.move(&Cube, VULCAN) == true)
         std::cout << "Borg Cube move to vulcan" << std::endl;
+    
+    std::cout << "UssKreog shield before attack = " << UssKreog.getShield() << std::endl;
+    borgQueen.fire(&Cube, &UssKreog);
+    std::cout << "UssKreog shield After attack = " << UssKreog.getShield() << std::endl;
     return 0;
 }
