@@ -193,6 +193,8 @@ namespace                       Borg
             short               getRepair(void);
             void                setRepair(short repair);
             void                repair(void);
+            void                fire(Federation::Starfleet::Ship *target);
+            void                fire(Federation::Ship *target);
     };
 }
 

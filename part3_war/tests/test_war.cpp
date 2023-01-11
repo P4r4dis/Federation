@@ -439,6 +439,26 @@ Begin shield re-initialisation... Done. Awaiting further instructions.\n\
 Energy cells depleted, shield weakening.\n");
 }
 
+Test(Borg_Ship, test_fire)
+{
+    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6, 50);
+    Federation::Starfleet::Captain  James("James T. Kirk");
+    Federation::Ship                Independent(150, 230, "Greok");
+    WarpSystem::QuantumReactor      QR;
+    WarpSystem::Core                core(&QR);
+
+    Independent.setupCore(&core);
+    Independent.checkCore();
+    UssKreog.promote(&James);
+    Borg::Ship Cube;
+
+    cr_assert(UssKreog.getShield() == 100);
+    Cube.fire(&UssKreog);
+    cr_assert(UssKreog.getShield() == 80);
+    cr_assert(Independent.getCore()->checkReactor()->isStable() == true);
+    Cube.fire(&Independent);
+    cr_assert(Independent.getCore()->checkReactor()->isStable() == false);
+}
 // Test(SickKoala, ctorDefault) {
 
 //         std::string     name;
