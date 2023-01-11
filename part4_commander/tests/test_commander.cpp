@@ -469,7 +469,6 @@ Test(Federation_Starfleet_Admiral, test_class, .init=redirect_all_stdout)
 
 }
 
-#include <iostream>
 Test(Federation_Starfleet_Admiral, test_move)
 {
     Federation::Starfleet::Admiral  admiral("Osu");
@@ -479,6 +478,27 @@ Test(Federation_Starfleet_Admiral, test_move)
 
     UssKreog.setupCore(&core);
     cr_assert(admiral.move(&UssKreog, VULCAN) == true);
+}
+#include <iostream>
+Test(Federation_Starfleet_Admiral, test_fire, .init=redirect_all_stdout)
+{
+    Federation::Starfleet::Ship     UssKreog(289, 132, "Kreog", 6, 50);
+    Borg::Ship                      Cube;
+    Federation::Starfleet::Admiral  admiral("Osu");
+
+    cr_assert(Cube.getShield() == 100);
+    admiral.fire(&UssKreog, &Cube);
+    cr_assert(Cube.getShield() == 50);
+    cr_assert_stdout_eq_str("The ship USS Kreog has been finished.\n\
+It is 289 m in length and 132 m in width.\n\
+It can go to Warp 6!\n\
+Weapons are set: 50 torpedoes ready.\n\
+We are the Borgs. Lower your shields and surrender yourselves unconditionally.\n\
+Your biological characteristics and technologies will be assimilated.\n\
+Resistance is futile.\n\
+Admiral Osu ready for action.\n\
+On order from Admiral Osu:\n\
+Kreog: Firing on target. 49 torpedoes remaining.\n");
 }
 // Test(SickKoala, ctorDefault) {
 
