@@ -25,6 +25,7 @@ SRCS		=	$(SRC_PATH)/Federation.cpp \
 				$(SRC_PATH)/WarpSystem.cpp \
 				$(SRC_PATH)/Borg.cpp \
 				$(SRC_PATH)/Admiral.cpp \
+				$(SRC_PATH)/BorgQueen.cpp \
 				$(CORE_PATH)/main_commander.cpp
 
 SRC_TEST	=	$(TST_PATH)/$(NAME)_test.cpp

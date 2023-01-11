@@ -2,6 +2,7 @@
 #include "../includes/WarpSystem.hpp"
 #include "../includes/Borg.hpp"
 #include "../includes/Admiral.hpp"
+#include "../includes/BorgQueen.hpp"
 
 
 int     main(void)
@@ -240,5 +241,10 @@ int     main(void)
     admiral.fire(&UssKreog, &Cube);
     std::cout << "Borg shield After attack = " << Cube.getShield() << std::endl;
 
+    Borg::BorgQueen                     borgQueen;
+    Cube.setupCore(&core);
+
+    if (borgQueen.move(&Cube, VULCAN) == true)
+        std::cout << "Borg Cube move to vulcan" << std::endl;
     return 0;
 }
