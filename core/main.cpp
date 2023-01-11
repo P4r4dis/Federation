@@ -1,10 +1,10 @@
-#include "../part1_borg/includes/Federation.hpp"
-#include "../part1_borg/includes/WarpSystem.hpp"
-#include "../part1_borg/includes/Borg.hpp"
+#include "../part4_commander/includes/Federation.hpp"
+#include "../part4_commander/includes/WarpSystem.hpp"
+#include "../part4_commander/includes/Borg.hpp"
 
 int     main(void)
 {
-    Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6);
+    Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6, 10);
     Federation::Ship Independent(150, 230, "Greok");
     WarpSystem::QuantumReactor QR;
     WarpSystem::QuantumReactor QR2;
