@@ -6,25 +6,25 @@
 int     main(void)
 {
     // Federation::Starfleet::Ship UssKreog(289, 132, "Kreog", 6);
-    // Federation::Ship Independent(150, 230, "Greok");
+    Federation::Ship Independent(150, 230, "Greok");
     // WarpSystem::QuantumReactor QR;
     // if (QR.getStability() == true)
     //     std::cout << "getStability == true" << std::endl;
     // if (QR.isStable() == true)
     //     std::cout << "isStable == true" << std::endl;
 
-    // WarpSystem::QuantumReactor QR2;
+    WarpSystem::QuantumReactor QR2;
     // WarpSystem::Core core(&QR);
     // if(core.checkReactor() == &QR)
     //     std::cout << "core.checkReactor is OK" << std::endl;
-    // WarpSystem::Core core2(&QR2);
+    WarpSystem::Core core2(&QR2);
     // if(core2.checkReactor() == &QR2)
     //     std::cout << "core2.checkReactor is OK" << std::endl;
 
     // UssKreog.setupCore(&core);
     // UssKreog.checkCore();
-    // Independent.setupCore(&core2);
-    // Independent.checkCore();
+    Independent.setupCore(&core2);
+    Independent.checkCore();
     
     // QR.setStability(false);
     // if (QR.getStability() == false)
@@ -211,5 +211,16 @@ int     main(void)
     Cube.repair();
     Cube.repair();
     std::cout << "getRepair -> " << Cube.getRepair() << std::endl;
+
+    std::cout << "Shield USSKREOG = " << UssKreog.getShield() << std::endl;
+    Cube.fire(&UssKreog);
+    std::cout << "Shield USSKREOG after ATTACKED = " << UssKreog.getShield() << std::endl;
+    std::cout   << std::boolalpha << "Reactor status before ATTACK = " << Independent.getCore()->checkReactor()->isStable()
+                << std::endl;    
+    Cube.fire(&Independent);
+    std::cout   << std::boolalpha << "Reactor status after ATTACK = " << Independent.getCore()->checkReactor()->isStable()
+                << std::endl;
+
+
     return 0;
 }

@@ -14,6 +14,11 @@ namespace       Federation {
 	class       Ship;
 }
 
+namespace       Borg
+{
+    class       Ship;
+}
+
 namespace       Federation
 {
     namespace   Starfleet

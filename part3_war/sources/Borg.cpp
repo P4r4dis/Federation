@@ -134,3 +134,19 @@ void                Borg::Ship::repair(void)
     else
         std::cout   << "Energy cells depleted, shield weakening." << std::endl;
 }
+
+void                Borg::Ship::fire(Federation::Starfleet::Ship *target)
+{
+        std::cout   << "Firing on target with " << _weaponFrequency 
+                    << " GW frequency." << std::endl; 
+        target->setShield(target->getShield() - (_weaponFrequency));
+        if(target->getShield() < 0)
+            target->setShield(0);
+}
+
+void                Borg::Ship::fire(Federation::Ship *target)
+{
+        std::cout   << "Firing on target with " << _weaponFrequency 
+                    << " GW frequency." << std::endl; 
+        target->getCore()->checkReactor()->setStability(false);
+}

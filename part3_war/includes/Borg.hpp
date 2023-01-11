@@ -3,6 +3,20 @@
 
 #include "WarpSystem.hpp"
 #include "Destination.hpp"
+#include "Federation.hpp"
+
+namespace       Federation
+{
+    namespace   Starfleet
+    {
+        class   Ship;
+        class   Captain;
+        class   Ensign;
+    };
+    class       Ship;
+    
+} // namespace Federation
+
 namespace                       Borg
 {
     class                       Ship
@@ -37,6 +51,8 @@ namespace                       Borg
             short               getRepair(void);
             void                setRepair(short repair);
             void                repair(void);
+            void                fire(Federation::Starfleet::Ship *target);
+            void                fire(Federation::Ship *target);
     };
 }
 
